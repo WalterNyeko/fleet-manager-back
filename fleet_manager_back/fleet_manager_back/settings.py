@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "vehicle_status",
     "vehicle_make_code",
     "vehicle_body_type",
+    "vehicle_fuel_type",
 ]
 
 MIDDLEWARE = [
