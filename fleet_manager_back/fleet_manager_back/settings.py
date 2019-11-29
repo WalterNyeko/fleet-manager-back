@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "vehicle_cost_center",
     "vehicle_convention_type",
     "vehicle_client",
+    "vehicle_country",
 ]
 
 MIDDLEWARE = [
