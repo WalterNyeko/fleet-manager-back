@@ -1,4 +1,4 @@
-#!/Users/walternyeko/Desktop/fleet-manager/venv/bin/python
+#!/Users/user/Desktop/fleet-manager-back/fleet_manager_back/venv/bin/python
 
 import sys
 import getopt

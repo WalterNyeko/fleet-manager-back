@@ -25,7 +25,8 @@ from rest_framework import routers, serializers, viewsets
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ["url", "username", "email", "is_staff"]
+
 
 # ViewSets define the view behavior.
 
@@ -37,13 +38,14 @@ class UserViewSet(viewsets.ModelViewSet):
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register(r"users", UserViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include('vehicle.urls')),
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace="home"))
+    url(r"^admin/", admin.site.urls),
+    url(r"^", include(("vehicle.urls", "vehicle"), namespace="vehicle")),
+    url(r"^", include(("vehicle_tyre.urls", "vehicletyre"), namespace="vehicletyre")),
+    url(r"^", include(router.urls)),
+    url(r"^api-auth/", include("rest_framework.urls", namespace="home")),
 ]
