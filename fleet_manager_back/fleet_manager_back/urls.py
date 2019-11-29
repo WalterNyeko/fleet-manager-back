@@ -54,6 +54,7 @@ urlpatterns = [
     url(r"^", include(("vehicle_convention_type.urls", "vehicleconventiontype"), namespace="vehicleconventiontype")),
     url(r"^", include(("vehicle_client.urls", "vehicleclient"), namespace="vehicleclient")),
     url(r"^", include(("vehicle_country.urls", "vehiclecountry"), namespace="vehiclecountry")),
+    url(r"^", include(("vehicle_model_code.urls", "vehiclemodelcode"), namespace="vehiclemodelcode")),
     url(
         r"^",
         include(
