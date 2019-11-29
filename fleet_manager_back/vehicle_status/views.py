@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import VehicleType
-from .serializers import VehicleTypeSerializer
+from .models import VehicleStatus
+from .serializers import VehicleStatusSerializer
 # Create your views here.
-class VehicleView(viewsets.ModelViewSet):
+class VehicleStatusView(viewsets.ModelViewSet):
     queryset = VehicleStatus.objects.all()
     serializer_class = VehicleStatusSerializer

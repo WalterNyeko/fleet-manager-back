@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class VehicleTyreConfig(AppConfig):
-    name = 'vehicle_type'
+class VehicleStatusConfig(AppConfig):
+    name = 'vehicle_Status'

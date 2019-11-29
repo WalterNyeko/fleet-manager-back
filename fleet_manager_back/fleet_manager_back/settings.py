@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "vehicle",
     "vehicle_tyre",
+    "vehicle_status",
     "vehicle_body_type",
 ]
 

@@ -46,6 +46,7 @@ urlpatterns = [
     url(r"^admin/", admin.site.urls),
     url(r"^", include(("vehicle.urls", "vehicle"), namespace="vehicle")),
     url(r"^", include(("vehicle_tyre.urls", "vehicletyre"), namespace="vehicletyre")),
+    url(r"^", include(("vehicle_status.urls", "vehiclestatus"), namespace="vehiclestatus")),
     url(
         r"^",
         include(
