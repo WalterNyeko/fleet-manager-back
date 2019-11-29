@@ -46,6 +46,7 @@ urlpatterns = [
     url(r"^admin/", admin.site.urls),
     url(r"^", include(("vehicle.urls", "vehicle"), namespace="vehicle")),
     url(r"^", include(("vehicle_tyre.urls", "vehicletyre"), namespace="vehicletyre")),
+    url(r"^", include(("vehicle_type.urls", "vehicletype"), namespace="vehicletype")),
     url(r"^", include(router.urls)),
     url(r"^api-auth/", include("rest_framework.urls", namespace="home")),
 ]
