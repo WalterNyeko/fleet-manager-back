@@ -49,6 +49,7 @@ urlpatterns = [
     url(r"^", include(("vehicle_status.urls", "vehiclestatus"), namespace="vehiclestatus")),
     url(r"^", include(("vehicle_make_code.urls", "vehiclemakecode"), namespace="vehiclemakecode")),
     url(r"^", include(("vehicle_fuel_type.urls", "vehiclefueltype"), namespace="vehiclefueltype")),
+    url(r"^", include(("vehicle_company_code.urls", "vehiclecompanycode"), namespace="vehiclecompanycode")),
     url(
         r"^",
         include(
