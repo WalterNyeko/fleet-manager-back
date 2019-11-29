@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "vehicle_fuel_type",
     "vehicle_company_code",
     "vehicle_cost_center",
+    "vehicle_convention_type",
 ]
 
 MIDDLEWARE = [
