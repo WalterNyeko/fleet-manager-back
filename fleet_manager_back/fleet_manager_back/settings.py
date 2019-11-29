@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "vehicle",
     "vehicle_tyre",
     "vehicle_status",
+    "vehicle_make_code",
     "vehicle_body_type",
 ]
 
