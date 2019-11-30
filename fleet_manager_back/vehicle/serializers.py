@@ -30,8 +30,15 @@ from .models import (
     VehicleComponents,
     VehicleLease,
     ElectronicallyInvoiced,
-    SalesPreparationDate
+    SalesPreparationDate,
+    SupplyMethod,
 )
+
+
+class SupplyMethodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SupplyMethod
+        fields = "__all__"
 
 
 class SalesPreparationDateSerializer(serializers.ModelSerializer):

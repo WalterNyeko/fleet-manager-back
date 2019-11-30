@@ -1,23 +1,36 @@
 from django.db import models
+
+
+class SupplyMethod(models.Model):
+    supply_method_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.supply_method_name
+
+
 class SalesPreparationDate(models.Model):
     sales_preparation_date_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.tyre_name
+        return self.sales_preparation_name
+
+
 class ElectronicallyInvoiced(models.Model):
     electronically_invoiced_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.tyre_name
+        return self.electronically_invoiced_name
+
 
 class VehicleInsuranceCompany(models.Model):
     insurance_company_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.tyre_name
+        return self.insurance_company_name
 
 
 class VehicleTyre(models.Model):
@@ -357,7 +370,7 @@ class VehicleLease(models.Model):
     sales_preparation_date = models.ForeignKey(
         SalesPreparationDate, on_delete=models.CASCADE
     )
-    
+    Supply_method = models.ForeignKey(SupplyMethod, on_delete=models.CASCADE)
 
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
