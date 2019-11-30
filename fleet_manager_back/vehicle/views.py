@@ -30,6 +30,7 @@ from .models import (
     VehicleComponents,
     VehicleLease,
     ElectronicallyInvoiced,
+    SalesPreparationDate
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -62,8 +63,15 @@ from .serializers import (
     VehicleComponentsSerializer,
     VehicleLeaseSerializer,
     ElectronicallyInvoicedSerializer,
+    SalesPreparationDateSerializer
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class SalesPreparationDateView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = SalesPreparationDate.objects.all()
+    serializer_class = SalesPreparationDateSerializer
 
 
 class ElectronicallyInvoicedView(viewsets.ModelViewSet):

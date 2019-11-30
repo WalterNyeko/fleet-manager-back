@@ -1,5 +1,10 @@
 from django.db import models
+class SalesPreparationDate(models.Model):
+    sales_preparation_date_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.tyre_name
 class ElectronicallyInvoiced(models.Model):
     electronically_invoiced_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -348,6 +353,9 @@ class VehicleLease(models.Model):
     estimated_odometer = models.CharField(max_length=250)
     electronically_invoiced = models.ForeignKey(
         ElectronicallyInvoiced, on_delete=models.CASCADE
+    )
+    sales_preparation_date = models.ForeignKey(
+        SalesPreparationDate, on_delete=models.CASCADE
     )
     
 
