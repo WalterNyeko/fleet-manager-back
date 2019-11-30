@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "vehicle_county",
     "vehicle_location_code",
     "vehicle_currency_codes",
+    "vehicle_in_pull",
 ]
 
 MIDDLEWARE = [

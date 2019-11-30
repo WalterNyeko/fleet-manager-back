@@ -15,6 +15,7 @@ from vehicle_status.serializers import VehicleStatusSerializer
 from vehicle_county.serializers import VehicleCountySerializer
 from vehicle_location_code.serializers import VehicleLocationCodeSerializer
 from vehicle_currency_codes.serializers import VehicleCurrencyCodesSerializer
+from vehicle_in_pull.serializers import VehicleInPullSerializer
 
 
 class VehicleSerializer(serializers.HyperlinkedModelSerializer):
@@ -33,6 +34,7 @@ class VehicleSerializer(serializers.HyperlinkedModelSerializer):
     vehicle_county = VehicleCountySerializer(many=False, read_only=True)
     vehicle_location_code = VehicleLocationCodeSerializer(many=False, read_only=True)
     vehicle_currency_codes = VehicleCurrencyCodesSerializer(many=False, read_only=True)
+    vehicle_in_pull = VehicleInPullSerializer(many=False, read_only=True)
     class Meta:
         model = Vehicle
-        fields = ('registration_no','extra_registration_no','year','fleet_number','date_registered','date_returned_to_workshop', 'vehicle_tyre', 'vehicle_body_type', 'vehicle_client', 'vehicle_company_code', 'vehicle_convention_type', 'vehicle_cost_center', 'vehicle_country', 'vehicle_fuel_type', 'vehicle_make_code', 'vehicle_model_code', 'vehicle_returned_workshop', 'vehicle_status', 'vehicle_county', 'vehicle_location_code', 'vehicle_currency_codes')
+        fields = ('registration_no','extra_registration_no','year','fleet_number','date_registered','date_returned_to_workshop', 'vehicle_tyre', 'vehicle_body_type', 'vehicle_client', 'vehicle_company_code', 'vehicle_convention_type', 'vehicle_cost_center', 'vehicle_country', 'vehicle_fuel_type', 'vehicle_make_code', 'vehicle_model_code', 'vehicle_returned_workshop', 'vehicle_status', 'vehicle_county', 'vehicle_location_code', 'vehicle_currency_codes', 'vehicle_in_pull')
