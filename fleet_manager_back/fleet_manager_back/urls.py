@@ -59,6 +59,7 @@ urlpatterns = [
     url(r"^", include(("vehicle_location_code.urls", "vehiclelocationcode"), namespace="vehiclelocationcode")),
     url(r"^", include(("vehicle_currency_codes.urls", "vehiclecurrencycodes"), namespace="vehiclecurrencycodes")),
     url(r"^", include(("vehicle_in_pull.urls", "vehicleinpull"), namespace="vehicleinpull")),
+    url(r"^", include(("vehicle_deductability.urls", "deductability"), namespace="deductability")),
     url(
         r"^",
         include(

@@ -14,6 +14,7 @@ from vehicle_status.models import VehicleStatus
 from vehicle_county.models import VehicleCounty
 from vehicle_location_code.models import VehicleLocationCode
 from vehicle_currency_codes.models import VehicleCurrencyCodes
+from vehicle_deductability.models import VehicleDeductability
 
 # Create your models here.
 
@@ -21,7 +22,6 @@ from vehicle_currency_codes.models import VehicleCurrencyCodes
 class Vehicle(models.Model):
     registration_no = models.CharField(max_length=60)
     extra_registration_no = models.CharField(max_length=60)
-
     cost_per_km = models.CharField(max_length=60)
     cumilative_balance = models.CharField(max_length=60)
     number_of_remining_tyres = models.CharField(max_length=60)
@@ -30,10 +30,6 @@ class Vehicle(models.Model):
     total_cost = models.CharField(max_length=60)
     next_service = models.CharField(max_length=60)
     estimated_odometer = models.CharField(max_length=60)
-
-
-    
-
     year = models.CharField(max_length=60)
     fleet_number = models.CharField(max_length=60)
     date_registered = models.DateTimeField(auto_now_add=True)
@@ -53,6 +49,7 @@ class Vehicle(models.Model):
     vehicle_county= models.ForeignKey(VehicleCounty, on_delete=models.CASCADE)
     vehicle_location_code= models.ForeignKey(VehicleLocationCode, on_delete=models.CASCADE)
     vehicle_currency_codes= models.ForeignKey(VehicleCurrencyCodes, on_delete=models.CASCADE)
+    vehicle_deductability= models.ForeignKey(VehicleDeductability, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.registration_no
