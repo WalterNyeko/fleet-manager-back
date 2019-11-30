@@ -1,9 +1,9 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import VehicleMakeCodeView
+from .views import VehicleLocationCodeView
 
 router = routers.DefaultRouter()
-router.register(r'vehiclemakecode', VehicleLocationCodeView)
+router.register(r'vehiclelocationcode', VehicleLocationCodeView)
 
 
 # Wire up our API using automatic URL routing.

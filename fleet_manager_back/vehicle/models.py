@@ -12,6 +12,7 @@ from vehicle_model_code.models import VehicleModelCode
 from vehicle_returned_workshop.models import VehicleReturnedWorkshop
 from vehicle_status.models import VehicleStatus
 from vehicle_county.models import VehicleCounty
+from vehicle_location_code.models import VehicleLocationCode
 
 # Create your models here.
 
@@ -36,6 +37,7 @@ class Vehicle(models.Model):
     vehicle_returned_workshop= models.ForeignKey(VehicleReturnedWorkshop, on_delete=models.CASCADE)
     vehicle_status= models.ForeignKey(VehicleStatus, on_delete=models.CASCADE)
     vehicle_county= models.ForeignKey(VehicleCounty, on_delete=models.CASCADE)
+    vehicle_location_code= models.ForeignKey(VehicleLocationCode, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.registration_no

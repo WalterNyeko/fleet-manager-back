@@ -56,7 +56,7 @@ urlpatterns = [
     url(r"^", include(("vehicle_country.urls", "vehiclecountry"), namespace="vehiclecountry")),
     url(r"^", include(("vehicle_model_code.urls", "vehiclemodelcode"), namespace="vehiclemodelcode")),
     url(r"^", include(("vehicle_returned_workshop.urls", "vehiclereturnedworkshop"), namespace="vehiclereturnedworkshop")),
-    url(r"^", include(("vehicle_county.urls", "vehiclecounty"), namespace="vehiclecounty")),
+    url(r"^", include(("vehicle_location_code.urls", "vehiclelocationcode"), namespace="vehiclelocationcode")),
     url(
         r"^",
         include(

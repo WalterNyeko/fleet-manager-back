@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "vehicle_country",
     "vehicle_returned_workshop",
     "vehicle_county",
+    "vehicle_location_code",
 ]
 
 MIDDLEWARE = [
