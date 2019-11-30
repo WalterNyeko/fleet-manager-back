@@ -24,13 +24,30 @@ from .models import (
     VehicleTyre,
     VehicleBasic,
     VehicleDiary,
-    VehicleInsuranceCompany
+    VehicleInsuranceCompany,
+    VehicleAllocation,
+    VehicleAssets
 )
+
+
+class VehicleAssetsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleAssets
+        fields = "__all__"
+
+
+class VehicleAllocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleAllocation
+        fields = "__all__"
+
 
 class VehicleInsuranceCompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = VehicleInsuranceCompany
         fields = "__all__"
+
+
 class VehicleDiarySerializer(serializers.ModelSerializer):
     class Meta:
         model = VehicleDiary
