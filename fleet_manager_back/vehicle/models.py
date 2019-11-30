@@ -1,11 +1,14 @@
 from django.db import models
 
+
 class ContactOptionCode(models.Model):
     contact_option_code_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.contact_option_code_name
+
+
 class SupplyMethod(models.Model):
     supply_method_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -368,14 +371,34 @@ class VehicleComponents(models.Model):
 
 
 class VehicleLease(models.Model):
-    estimated_odometer = models.CharField(max_length=250)
+    tyre_batteries_provision = models.CharField(max_length=250)
+    restoration_works_provision = models.CharField(max_length=250)
+    service_provision = models.CharField(max_length=250)
+    maintenance_provision = models.CharField(max_length=250)
+    total_maintenance_provision = models.CharField(max_length=250)
+    finance_owner = models.CharField(max_length=250)
     electronically_invoiced = models.ForeignKey(
         ElectronicallyInvoiced, on_delete=models.CASCADE
     )
+    lease_end_date = models.CharField(max_length=250)
+    sales_outlet = models.CharField(max_length=250)
+    contract_rv_payment_date = models.CharField(max_length=250)
+    contract_annual_distance = models.CharField(max_length=250)
+    fuel_provision_per_month = models.CharField(max_length=250)
+    vehicle_release_date = models.CharField(max_length=250)
     sales_preparation_date = models.ForeignKey(
         SalesPreparationDate, on_delete=models.CASCADE
     )
+    lease_contract_no = models.CharField(max_length=250)
+    lot_no = models.CharField(max_length=250)
     Supply_method = models.ForeignKey(SupplyMethod, on_delete=models.CASCADE)
-
+    contract_start_date = models.CharField(max_length=250)
+    contract_no = models.CharField(max_length=250)
+    contract_duration = models.CharField(max_length=250)
+    contract_distance = models.CharField(max_length=250)
+    contract_option_code = models.ForeignKey(
+        ContactOptionCode, on_delete=models.CASCADE
+    )
+    excess_charge = models.CharField(max_length=250)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
