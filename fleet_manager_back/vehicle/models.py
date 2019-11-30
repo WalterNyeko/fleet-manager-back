@@ -1,5 +1,11 @@
 from django.db import models
 
+class ElectronicallyInvoiced(models.Model):
+    electronically_invoiced_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.tyre_name
 
 class VehicleInsuranceCompany(models.Model):
     insurance_company_name = models.CharField(max_length=250)
@@ -274,6 +280,7 @@ class VehicleDiary(models.Model):
 
     # accidents / repairs here
 
+
 class VehicleAllocation(models.Model):
     driver_name = models.CharField(max_length=60)
     registratyion_no = models.CharField(max_length=60)
@@ -289,6 +296,7 @@ class VehicleAllocation(models.Model):
     workshop = models.CharField(max_length=60)
     allocation_reason = models.CharField(max_length=60)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
 
 class VehicleAssets(models.Model):
     registration_no = models.CharField(max_length=60)
@@ -333,5 +341,15 @@ class VehicleComponents(models.Model):
     axle_radio = models.CharField(max_length=60)
     number_of_wheels = models.CharField(max_length=60)
     fork_lift_hieght = models.CharField(max_length=60)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+
+class VehicleLease(models.Model):
+    estimated_odometer = models.CharField(max_length=250)
+    electronically_invoiced = models.ForeignKey(
+        ElectronicallyInvoiced, on_delete=models.CASCADE
+    )
+    
+
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 

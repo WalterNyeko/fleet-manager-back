@@ -27,8 +27,22 @@ from .models import (
     VehicleInsuranceCompany,
     VehicleAllocation,
     VehicleAssets,
-    VehicleComponents
+    VehicleComponents,
+    VehicleLease,
+    ElectronicallyInvoiced,
 )
+
+
+class ElectronicallyInvoicedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ElectronicallyInvoiced
+        fields = "__all__"
+
+
+class VehicleLeaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleLease
+        fields = "__all__"
 
 
 class VehicleComponentsSerializer(serializers.ModelSerializer):

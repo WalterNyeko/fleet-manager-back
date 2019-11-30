@@ -28,6 +28,8 @@ from .models import (
     VehicleAllocation,
     VehicleAssets,
     VehicleComponents,
+    VehicleLease,
+    ElectronicallyInvoiced,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -58,8 +60,22 @@ from .serializers import (
     VehicleAllocationSerializer,
     VehicleAssetsSerializer,
     VehicleComponentsSerializer,
+    VehicleLeaseSerializer,
+    ElectronicallyInvoicedSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class ElectronicallyInvoicedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ElectronicallyInvoiced.objects.all()
+    serializer_class = ElectronicallyInvoicedSerializer
+
+
+class VehicleLeaseView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleLease.objects.all()
+    serializer_class = VehicleLeaseSerializer
 
 
 class VehicleComponentsView(viewsets.ModelViewSet):
