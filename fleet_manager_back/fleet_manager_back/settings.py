@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "vehicle_client",
     "vehicle_country",
     "vehicle_returned_workshop",
+    "vehicle_county",
 ]
 
 MIDDLEWARE = [
