@@ -16,6 +16,8 @@ from vehicle_county.serializers import VehicleCountySerializer
 from vehicle_location_code.serializers import VehicleLocationCodeSerializer
 from vehicle_currency_codes.serializers import VehicleCurrencyCodesSerializer
 from vehicle_in_pull.serializers import VehicleInPullSerializer
+from vehicle_deductability.serializers import VehicleDeductabilitySerializer
+from vehicle_gear_box.serializers import VehicleGearBoxSerializer
 
 
 class VehicleSerializer(serializers.HyperlinkedModelSerializer):
@@ -35,6 +37,8 @@ class VehicleSerializer(serializers.HyperlinkedModelSerializer):
     vehicle_location_code = VehicleLocationCodeSerializer(many=False, read_only=True)
     vehicle_currency_codes = VehicleCurrencyCodesSerializer(many=False, read_only=True)
     vehicle_in_pull = VehicleInPullSerializer(many=False, read_only=True)
+    vehicle_deductability = VehicleDeductabilitySerializer(many=False, read_only=True)
+    vehicle_gear_box = VehicleGearBoxSerializer(many=False, read_only=True)
     class Meta:
         model = Vehicle
-        fields = ('registration_no','extra_registration_no', 'cost_per_km', 'cumilative_balance', 'number_of_remining_tyres', 'l_per_km', 'next_inspection', 'total_cost', 'next_service', 'estimated_odometer','year','fleet_number','date_registered','date_returned_to_workshop', 'vehicle_tyre', 'vehicle_body_type', 'vehicle_client', 'vehicle_company_code', 'vehicle_convention_type', 'vehicle_cost_center', 'vehicle_country', 'vehicle_fuel_type', 'vehicle_make_code', 'vehicle_model_code', 'vehicle_returned_workshop', 'vehicle_status', 'vehicle_county', 'vehicle_location_code', 'vehicle_currency_codes', 'vehicle_in_pull')
+        fields = ('tank_size', 'winter_tyres_location', 'winter_tyres', 'gross_vehicle_weight', 'bhp', 'vehicle_phone_number', 'distance_to_work', 'engiene_cc', 'engiene_number', 'fiscal_hp', 'chassis_number', 'key_number', 'co2km', 'number_of_doors', 'interior_color', 'ecoscore', 'exterior_color', 'registration_no','extra_registration_no', 'cost_per_km', 'cumilative_balance', 'number_of_remining_tyres', 'l_per_km', 'next_inspection', 'total_cost', 'next_service', 'estimated_odometer','year','fleet_number','date_registered','date_returned_to_workshop', 'vehicle_tyre', 'vehicle_body_type', 'vehicle_client', 'vehicle_company_code', 'vehicle_convention_type', 'vehicle_cost_center', 'vehicle_country', 'vehicle_fuel_type', 'vehicle_make_code', 'vehicle_model_code', 'vehicle_returned_workshop', 'vehicle_status', 'vehicle_county', 'vehicle_location_code', 'vehicle_currency_codes', 'vehicle_in_pull', 'vehicle_deductability', 'vehicle_gear_box')

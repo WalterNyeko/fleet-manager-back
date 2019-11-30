@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     "vehicle_location_code",
     "vehicle_currency_codes",
     "vehicle_in_pull",
+    "vehicle_deductability",
+    "vehicle_gear_box",
 ]
 
 MIDDLEWARE = [
