@@ -24,7 +24,15 @@ from .models import (
     VehicleSummary,
     VehicleBasic,
     VehicleDiary,
-    VehicleInsuranceCompany
+    VehicleInsuranceCompany,
+    VehicleAllocation,
+    VehicleAssets,
+    VehicleComponents,
+    VehicleLease,
+    ElectronicallyInvoiced,
+    SalesPreparationDate,
+    SupplyMethod,
+    ContactOptionCode
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -49,11 +57,68 @@ from .serializers import (
     VehicleTypeSerializer,
     VehicleTyreSerializer,
     VehicleSummarySerializer,
-    VehicleBasicSerializer, 
+    VehicleBasicSerializer,
     VehicleDiarySerializer,
-    VehicleInsuranceCompanySerializer
+    VehicleInsuranceCompanySerializer,
+    VehicleAllocationSerializer,
+    VehicleAssetsSerializer,
+    VehicleComponentsSerializer,
+    VehicleLeaseSerializer,
+    ElectronicallyInvoicedSerializer,
+    SalesPreparationDateSerializer,
+    SupplyMethodSerializer,
+    ContactOptionCodeSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class ContactOptionCodeView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ContactOptionCode.objects.all()
+    serializer_class = ContactOptionCodeSerializer
+
+
+class SupplyMethodView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = SupplyMethod.objects.all()
+    serializer_class = SupplyMethodSerializer
+
+
+class SalesPreparationDateView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = SalesPreparationDate.objects.all()
+    serializer_class = SalesPreparationDateSerializer
+
+
+class ElectronicallyInvoicedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ElectronicallyInvoiced.objects.all()
+    serializer_class = ElectronicallyInvoicedSerializer
+
+
+class VehicleLeaseView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleLease.objects.all()
+    serializer_class = VehicleLeaseSerializer
+
+
+class VehicleComponentsView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleComponents.objects.all()
+    serializer_class = VehicleComponentsSerializer
+
+
+class VehicleAssetsView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleAssets.objects.all()
+    serializer_class = VehicleAssetsSerializer
+
+
+class VehicleAllocationView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleAllocation.objects.all()
+    serializer_class = VehicleAllocationSerializer
+
 
 class VehicleInsuranceCompanyView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]
@@ -66,10 +131,12 @@ class VehicleBasicView(viewsets.ModelViewSet):
     queryset = VehicleBasic.objects.all()
     serializer_class = VehicleBasicSerializer
 
+
 class VehicleDiaryView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]
     queryset = VehicleDiary.objects.all()
     serializer_class = VehicleDiarySerializer
+
 
 class VehicleSummaryView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]
@@ -99,6 +166,7 @@ class VehicleStatusView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]
     queryset = VehicleStatus.objects.all()
     serializer_class = VehicleStatusSerializer
+
 
 class VehicleReturnedWorkshopView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]

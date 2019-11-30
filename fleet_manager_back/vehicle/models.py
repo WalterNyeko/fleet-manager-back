@@ -1,12 +1,44 @@
 from django.db import models
 
 
+class ContactOptionCode(models.Model):
+    contact_option_code_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.contact_option_code_name
+
+
+class SupplyMethod(models.Model):
+    supply_method_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.supply_method_name
+
+
+class SalesPreparationDate(models.Model):
+    sales_preparation_date_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.sales_preparation_name
+
+
+class ElectronicallyInvoiced(models.Model):
+    electronically_invoiced_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.electronically_invoiced_name
+
+
 class VehicleInsuranceCompany(models.Model):
     insurance_company_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.tyre_name
+        return self.insurance_company_name
 
 
 class VehicleTyre(models.Model):
@@ -270,5 +302,103 @@ class VehicleDiary(models.Model):
     deviation_perc = models.CharField(max_length=60)
     odometer = models.CharField(max_length=60)
     current_odo_date = models.CharField(max_length=60)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+    # accidents / repairs here
+
+
+class VehicleAllocation(models.Model):
+    driver_name = models.CharField(max_length=60)
+    registratyion_no = models.CharField(max_length=60)
+    changed_by = models.CharField(max_length=60)
+    date = models.CharField(max_length=60)
+    company_code = models.CharField(max_length=60)
+    cost_center = models.CharField(max_length=60)
+    start_date = models.CharField(max_length=60)
+    odometer = models.CharField(max_length=60)
+    end_date = models.CharField(max_length=60)
+    end_odometer = models.CharField(max_length=60)
+    lock = models.CharField(max_length=60)
+    workshop = models.CharField(max_length=60)
+    allocation_reason = models.CharField(max_length=60)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+
+class VehicleAssets(models.Model):
+    registration_no = models.CharField(max_length=60)
+    extra_registration_no = models.CharField(max_length=60)
+    asset_description = models.CharField(max_length=60)
+    asset_type = models.CharField(max_length=60)
+    asset_make = models.CharField(max_length=60)
+    asset_model = models.CharField(max_length=60)
+    asset_issue_date = models.CharField(max_length=60)
+    asset_return_date = models.CharField(max_length=60)
+    asset_serial = models.CharField(max_length=60)
+    driver_name = models.CharField(max_length=60)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+
+class VehicleComponents(models.Model):
+    front_tyre_make = models.CharField(max_length=60)
+    front_tyre_size = models.CharField(max_length=60)
+    front_tyre_psi = models.CharField(max_length=60)
+    rear_tyre_make = models.CharField(max_length=60)
+    rear_tyre_size = models.CharField(max_length=60)
+    rear_tyre_psi = models.CharField(max_length=60)
+    battery_make = models.CharField(max_length=60)
+    battery_size = models.CharField(max_length=60)
+    battery_type = models.CharField(max_length=60)
+    body_make = models.CharField(max_length=60)
+    body_serial = models.CharField(max_length=60)
+    gear_box_make = models.CharField(max_length=60)
+    gear_box_serial = models.CharField(max_length=60)
+    limiter_make = models.CharField(max_length=60)
+    limiter_number = models.CharField(max_length=60)
+    limiter_date = models.CharField(max_length=60)
+    tachograph_make = models.CharField(max_length=60)
+    tachograph_number = models.CharField(max_length=60)
+    tachograph_2_year = models.CharField(max_length=60)
+    tachograph_6_year = models.CharField(max_length=60)
+    tail_lift = models.CharField(max_length=60)
+    tail_num = models.CharField(max_length=60)
+    tail_swl = models.CharField(max_length=60)
+    axle_type = models.CharField(max_length=60)
+    axle_number = models.CharField(max_length=60)
+    axle_radio = models.CharField(max_length=60)
+    number_of_wheels = models.CharField(max_length=60)
+    fork_lift_hieght = models.CharField(max_length=60)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+
+class VehicleLease(models.Model):
+    tyre_batteries_provision = models.CharField(max_length=250)
+    restoration_works_provision = models.CharField(max_length=250)
+    service_provision = models.CharField(max_length=250)
+    maintenance_provision = models.CharField(max_length=250)
+    total_maintenance_provision = models.CharField(max_length=250)
+    finance_owner = models.CharField(max_length=250)
+    electronically_invoiced = models.ForeignKey(
+        ElectronicallyInvoiced, on_delete=models.CASCADE
+    )
+    lease_end_date = models.CharField(max_length=250)
+    sales_outlet = models.CharField(max_length=250)
+    contract_rv_payment_date = models.CharField(max_length=250)
+    contract_annual_distance = models.CharField(max_length=250)
+    fuel_provision_per_month = models.CharField(max_length=250)
+    vehicle_release_date = models.CharField(max_length=250)
+    sales_preparation_date = models.ForeignKey(
+        SalesPreparationDate, on_delete=models.CASCADE
+    )
+    lease_contract_no = models.CharField(max_length=250)
+    lot_no = models.CharField(max_length=250)
+    Supply_method = models.ForeignKey(SupplyMethod, on_delete=models.CASCADE)
+    contract_start_date = models.CharField(max_length=250)
+    contract_no = models.CharField(max_length=250)
+    contract_duration = models.CharField(max_length=250)
+    contract_distance = models.CharField(max_length=250)
+    contract_option_code = models.ForeignKey(
+        ContactOptionCode, on_delete=models.CASCADE
+    )
+    excess_charge = models.CharField(max_length=250)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
