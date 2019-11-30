@@ -21,6 +21,19 @@ from vehicle_currency_codes.models import VehicleCurrencyCodes
 class Vehicle(models.Model):
     registration_no = models.CharField(max_length=60)
     extra_registration_no = models.CharField(max_length=60)
+
+    cost_per_km = models.CharField(max_length=60)
+    cumilative_balance = models.CharField(max_length=60)
+    number_of_remining_tyres = models.CharField(max_length=60)
+    l_per_km = models.CharField(max_length=60)
+    next_inspection = models.CharField(max_length=60)
+    total_cost = models.CharField(max_length=60)
+    next_service = models.CharField(max_length=60)
+    estimated_odometer = models.CharField(max_length=60)
+
+
+    
+
     year = models.CharField(max_length=60)
     fleet_number = models.CharField(max_length=60)
     date_registered = models.DateTimeField(auto_now_add=True)
