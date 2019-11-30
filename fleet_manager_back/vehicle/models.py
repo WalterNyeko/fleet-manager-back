@@ -272,3 +272,21 @@ class VehicleDiary(models.Model):
     current_odo_date = models.CharField(max_length=60)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
+    # accidents / repairs here
+
+class VehicleAllocation(models.Model):
+    driver_name = models.CharField(max_length=60)
+    registratyion_no = models.CharField(max_length=60)
+    changed_by = models.CharField(max_length=60)
+    date = models.CharField(max_length=60)
+    company_code = models.CharField(max_length=60)
+    cost_center = models.CharField(max_length=60)
+    start_date = models.CharField(max_length=60)
+    odometer = models.CharField(max_length=60)
+    end_date = models.CharField(max_length=60)
+    end_odometer = models.CharField(max_length=60)
+    lock = models.CharField(max_length=60)
+    workshop = models.CharField(max_length=60)
+    allocation_reason = models.CharField(max_length=60)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
