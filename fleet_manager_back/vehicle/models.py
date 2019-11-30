@@ -1,24 +1,143 @@
 from django.db import models
-from vehicle_tyre.models import VehicleTyre
-from vehicle_body_type.models import VehicleBodyType
-from vehicle_client.models import VehicleClient
-from vehicle_company_code.models import VehicleCompanyCode
-from vehicle_convention_type.models import VehicleConventionType
-from vehicle_cost_center.models import VehicleCostCenter
-from vehicle_country.models import VehicleCountry
-from vehicle_fuel_type.models import VehicleFuelType
-from vehicle_make_code.models import VehicleMakeCode
-from vehicle_model_code.models import VehicleModelCode
-from vehicle_returned_workshop.models import VehicleReturnedWorkshop
-from vehicle_status.models import VehicleStatus
-from vehicle_county.models import VehicleCounty
-from vehicle_location_code.models import VehicleLocationCode
-from vehicle_currency_codes.models import VehicleCurrencyCodes
-from vehicle_deductability.models import VehicleDeductability
-from vehicle_gear_box.models import VehicleGearBox
 
-# Create your models here.
+class VehicleInsuranceCompany(models.Model):
+    insurance_company_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.tyre_name
+class VehicleTyre(models.Model):
+    tyre_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.tyre_name
+        
+class VehicleType(models.Model):
+    type_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.type_name
+
+class VehicleStatus(models.Model):
+    status_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.status_name
+
+class VehicleReturnedWorkshop(models.Model):
+    returned_workshop_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.returned_workshop_name
+
+class VehicleModelCode(models.Model):
+    model_code_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.model_code_name
+
+class VehicleMakeCode(models.Model):
+    make_code_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.make_code_name
+
+class VehicleLocationCode(models.Model):
+    location_code_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.location_code_name
+
+class VehicleInPull(models.Model):
+    in_pull_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.in_pull_name
+
+class VehicleGearBox(models.Model):
+    gear_box_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.gear_box_name
+
+class VehicleFuelType(models.Model):
+    fuel_type_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.fuel_type_name
+
+class VehicleDeductability(models.Model):
+    deductability_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.deductability_name
+
+class VehicleCurrencyCodes(models.Model):
+    currency_codes_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.currency_codes_name
+
+class VehicleCounty(models.Model):
+    county_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.county_name
+
+class VehicleCountry(models.Model):
+    country_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.country_name
+
+class VehicleCostCenter(models.Model):
+    cost_center_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.cost_center_name
+
+class VehicleConventionType(models.Model):
+    convention_type_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.convention_type_name
+
+class VehicleCompanyCode(models.Model):
+    company_code_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.company_code_name
+
+class VehicleBodyType(models.Model):
+    body_type_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.body_type_name
+
+class VehicleClient(models.Model):
+    client_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.client_name
 
 class Vehicle(models.Model):
     registration_no = models.CharField(max_length=60)

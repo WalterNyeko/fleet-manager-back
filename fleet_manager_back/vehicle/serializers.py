@@ -1,44 +1,106 @@
 from rest_framework import serializers
-from .models import Vehicle
-from vehicle_tyre.serializers import VehicleTyreSerializer
-from vehicle_body_type.serializers import VehicleBodyTypeSerializer
-from vehicle_client.serializers import VehicleClientSerializer
-from vehicle_company_code.serializers import VehicleCompanyCodeSerializer
-from vehicle_convention_type.serializers import VehicleConventionTypeSerializer
-from vehicle_cost_center.serializers import VehicleCostCenterSerializer
-from vehicle_country.serializers import VehicleCountrySerializer
-from vehicle_fuel_type.serializers import VehicleFuelTypeSerializer
-from vehicle_make_code.serializers import VehicleMakeCodeSerializer
-from vehicle_model_code.serializers import VehicleModelCodeSerializer
-from vehicle_returned_workshop.serializers import VehicleReturnedWorkshopSerializer
-from vehicle_status.serializers import VehicleStatusSerializer
-from vehicle_county.serializers import VehicleCountySerializer
-from vehicle_location_code.serializers import VehicleLocationCodeSerializer
-from vehicle_currency_codes.serializers import VehicleCurrencyCodesSerializer
-from vehicle_in_pull.serializers import VehicleInPullSerializer
-from vehicle_deductability.serializers import VehicleDeductabilitySerializer
-from vehicle_gear_box.serializers import VehicleGearBoxSerializer
+from .models import VehicleInsuranceCompany, Vehicle, VehicleClient,VehicleBodyType, VehicleCompanyCode,VehicleConventionType, VehicleCostCenter, VehicleCountry, VehicleCounty, VehicleCurrencyCodes,VehicleDeductability, VehicleFuelType, VehicleGearBox, VehicleInPull, VehicleLocationCode,VehicleMakeCode, VehicleModelCode, VehicleReturnedWorkshop, VehicleStatus, VehicleType, VehicleTyre
 
+class VehicleInsuranceCompanySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleInsuranceCompany
+        fields = '__all__'
+class VehicleTyreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleTyre
+        fields = '__all__'
 
-class VehicleSerializer(serializers.HyperlinkedModelSerializer):
-    vehicle_tyre = VehicleTyreSerializer(many=False, read_only=True)
-    vehicle_body_type = VehicleBodyTypeSerializer(many=False, read_only=True)
-    vehicle_client = VehicleClientSerializer(many=False, read_only=True)
-    vehicle_company_code = VehicleCompanyCodeSerializer(many=False, read_only=True)
-    vehicle_convention_type = VehicleConventionTypeSerializer(many=False, read_only=True)
-    vehicle_cost_center = VehicleCostCenterSerializer(many=False, read_only=True)
-    vehicle_country = VehicleCountrySerializer(many=False, read_only=True)
-    vehicle_fuel_type = VehicleFuelTypeSerializer(many=False, read_only=True)
-    vehicle_make_code = VehicleMakeCodeSerializer(many=False, read_only=True)
-    vehicle_model_code = VehicleModelCodeSerializer(many=False, read_only=True)
-    vehicle_returned_workshop = VehicleReturnedWorkshopSerializer(many=False, read_only=True)
-    vehicle_status = VehicleStatusSerializer(many=False, read_only=True)
-    vehicle_county = VehicleCountySerializer(many=False, read_only=True)
-    vehicle_location_code = VehicleLocationCodeSerializer(many=False, read_only=True)
-    vehicle_currency_codes = VehicleCurrencyCodesSerializer(many=False, read_only=True)
-    vehicle_in_pull = VehicleInPullSerializer(many=False, read_only=True)
-    vehicle_deductability = VehicleDeductabilitySerializer(many=False, read_only=True)
-    vehicle_gear_box = VehicleGearBoxSerializer(many=False, read_only=True)
+class VehicleTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleType
+        fields = '__all__'
+
+class VehicleStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleStatus
+        fields = '__all__'
+        
+class VehicleReturnedWorkshopSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleReturnedWorkshop
+        fields = '__all__'
+
+class VehicleModelCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleModelCode
+        fields = '__all__'
+
+class VehicleMakeCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleMakeCode
+        fields = '__all__'
+
+class VehicleLocationCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleLocationCode
+        fields = '__all__'
+
+class VehicleInPullSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleInPull
+        fields = '__all__'
+
+class VehicleGearBoxSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleGearBox
+        fields = '__all__'
+
+class VehicleFuelTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleFuelType
+        fields = '__all__'
+
+class VehicleDeductabilitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleDeductability
+        fields = '__all__'
+
+class VehicleCurrencyCodesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleCurrencyCodes
+        fields = '__all__'
+
+class VehicleCountySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleCounty
+        fields = '__all__'
+
+class VehicleCountrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleCountry
+        fields = '__all__'
+
+class VehicleCostCenterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleCostCenter
+        fields = '__all__'
+
+class VehicleConventionTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleConventionType
+        fields = '__all__'
+
+class VehicleCompanyCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleCompanyCode
+        fields = '__all__'
+
+class VehicleBodyTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleBodyType
+        fields = '__all__'
+
+class VehicleClientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleClient
+        fields = '__all__'
+
+class VehicleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vehicle
-        fields = ('tank_size', 'winter_tyres_location', 'winter_tyres', 'gross_vehicle_weight', 'bhp', 'vehicle_phone_number', 'distance_to_work', 'engiene_cc', 'engiene_number', 'fiscal_hp', 'chassis_number', 'key_number', 'co2km', 'number_of_doors', 'interior_color', 'ecoscore', 'exterior_color', 'registration_no','extra_registration_no', 'cost_per_km', 'cumilative_balance', 'number_of_remining_tyres', 'l_per_km', 'next_inspection', 'total_cost', 'next_service', 'estimated_odometer','year','fleet_number','date_registered','date_returned_to_workshop', 'vehicle_tyre', 'vehicle_body_type', 'vehicle_client', 'vehicle_company_code', 'vehicle_convention_type', 'vehicle_cost_center', 'vehicle_country', 'vehicle_fuel_type', 'vehicle_make_code', 'vehicle_model_code', 'vehicle_returned_workshop', 'vehicle_status', 'vehicle_county', 'vehicle_location_code', 'vehicle_currency_codes', 'vehicle_in_pull', 'vehicle_deductability', 'vehicle_gear_box')
+        fields = '__all__'

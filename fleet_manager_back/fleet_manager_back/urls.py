@@ -1,28 +1,13 @@
-"""fleet_manager_back URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
+from vehicle.views import VehicleInsuranceCompanyView, VehicleView, VehicleBodyTypeView, VehicleClientView, VehicleCompanyCodeView, VehicleConventionTypeView, VehicleCountyView, VehicleCountryView,VehicleCostCenterView, VehicleCurrencyCodesView, VehicleDeductabilityView, VehicleFuelTypeView, VehicleGearBoxView,VehicleInPullView, VehicleLocationCodeView, VehicleMakeCodeView, VehicleModelCodeView, VehicleReturnedWorkshopView, VehicleStatusView, VehicleTypeView, VehicleTyreView
 
 # Serializers define the API representation.
 
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["url", "username", "email", "is_staff"]
@@ -39,34 +24,31 @@ class UserViewSet(viewsets.ModelViewSet):
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r"users", UserViewSet)
-
+router.register(r'vehicles', VehicleView)
+router.register(r'vehicleclient', VehicleClientView)
+router.register(r'vehiclebodytypes', VehicleBodyTypeView)
+router.register(r'vehiclecompanycode', VehicleCompanyCodeView)
+router.register(r'vehicleconventiontype', VehicleConventionTypeView)
+router.register(r'vehiclecostcenter', VehicleCostCenterView)
+router.register(r'vehiclecounty', VehicleCountyView)
+router.register(r'vehiclecountry', VehicleCountryView)
+router.register(r'vehiclecurrencycodes', VehicleCurrencyCodesView)
+router.register(r'vehicledeductability', VehicleDeductabilityView)
+router.register(r'vehiclefueltype', VehicleFuelTypeView)
+router.register(r'vehiclegearbox', VehicleGearBoxView)
+router.register(r'vehicleinpull', VehicleInPullView)
+router.register(r'vehiclelocationcode', VehicleLocationCodeView)
+router.register(r'vehiclemakecode', VehicleMakeCodeView)
+router.register(r'vehiclemodelcode', VehicleModelCodeView)
+router.register(r'vehiclereturnedworkshop', VehicleReturnedWorkshopView)
+router.register(r'vehiclestatus', VehicleStatusView)
+router.register(r'vehicletypes', VehicleTypeView)
+router.register(r'vehicletyres', VehicleTyreView)
+router.register(r'vehicleinsurancecompany', VehicleInsuranceCompanyView)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r"^admin/", admin.site.urls),
-    url(r"^", include(("vehicle.urls", "vehicle"), namespace="vehicle")),
-    url(r"^", include(("vehicle_tyre.urls", "vehicletyre"), namespace="vehicletyre")),
-    url(r"^", include(("vehicle_status.urls", "vehiclestatus"), namespace="vehiclestatus")),
-    url(r"^", include(("vehicle_make_code.urls", "vehiclemakecode"), namespace="vehiclemakecode")),
-    url(r"^", include(("vehicle_fuel_type.urls", "vehiclefueltype"), namespace="vehiclefueltype")),
-    url(r"^", include(("vehicle_company_code.urls", "vehiclecompanycode"), namespace="vehiclecompanycode")),
-    url(r"^", include(("vehicle_cost_center.urls", "vehiclecostcenter"), namespace="vehiclecostcenter")),
-    url(r"^", include(("vehicle_convention_type.urls", "vehicleconventiontype"), namespace="vehicleconventiontype")),
-    url(r"^", include(("vehicle_client.urls", "vehicleclient"), namespace="vehicleclient")),
-    url(r"^", include(("vehicle_country.urls", "vehiclecountry"), namespace="vehiclecountry")),
-    url(r"^", include(("vehicle_model_code.urls", "vehiclemodelcode"), namespace="vehiclemodelcode")),
-    url(r"^", include(("vehicle_returned_workshop.urls", "vehiclereturnedworkshop"), namespace="vehiclereturnedworkshop")),
-    url(r"^", include(("vehicle_location_code.urls", "vehiclelocationcode"), namespace="vehiclelocationcode")),
-    url(r"^", include(("vehicle_currency_codes.urls", "vehiclecurrencycodes"), namespace="vehiclecurrencycodes")),
-    url(r"^", include(("vehicle_in_pull.urls", "vehicleinpull"), namespace="vehicleinpull")),
-    url(r"^", include(("vehicle_deductability.urls", "deductability"), namespace="deductability")),
-    url(r"^", include(("vehicle_gear_box.urls", "gearbox"), namespace="gearbox")),
-    url(
-        r"^",
-        include(
-            ("vehicle_county.urls", "vehiclecounty"), namespace="vehiclecounty"
-        ),
-    ),
     url(r"^", include(router.urls)),
     url(r"^api-auth/", include("rest_framework.urls", namespace="home")),
 ]
