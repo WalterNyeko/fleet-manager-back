@@ -26,7 +26,8 @@ from .models import (
     VehicleDiary,
     VehicleInsuranceCompany,
     VehicleAllocation,
-    VehicleAssets
+    VehicleAssets,
+    VehicleNotes,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -51,13 +52,20 @@ from .serializers import (
     VehicleTypeSerializer,
     VehicleTyreSerializer,
     VehicleSummarySerializer,
-    VehicleBasicSerializer, 
+    VehicleBasicSerializer,
     VehicleDiarySerializer,
     VehicleInsuranceCompanySerializer,
     VehicleAllocationSerializer,
-    VehicleAssetsSerializer
+    VehicleAssetsSerializer,
+    VehicleNotesSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class VehicleNotesView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleNotes.objects.all()
+    serializer_class = VehicleNotesSerializer
 
 
 class VehicleAssetsView(viewsets.ModelViewSet):

@@ -305,3 +305,9 @@ class VehicleAssets(models.Model):
     driver_name = models.CharField(max_length=60)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
+class VehicleNotes(models.Model):
+    date = models.CharField(max_length=60)
+    contract_baloon_payment = models.CharField(max_length=60)
+    notes = models.CharField(max_length=60)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
