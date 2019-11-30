@@ -31,7 +31,8 @@ from .models import (
     VehicleLease,
     ElectronicallyInvoiced,
     SalesPreparationDate,
-    SupplyMethod
+    SupplyMethod,
+    ContactOptionCode
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -65,9 +66,16 @@ from .serializers import (
     VehicleLeaseSerializer,
     ElectronicallyInvoicedSerializer,
     SalesPreparationDateSerializer,
-    SupplyMethodSerializer
+    SupplyMethodSerializer,
+    ContactOptionCodeSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class ContactOptionCodeView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ContactOptionCode.objects.all()
+    serializer_class = ContactOptionCodeSerializer
 
 
 class SupplyMethodView(viewsets.ModelViewSet):

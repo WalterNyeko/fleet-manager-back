@@ -1,6 +1,11 @@
 from django.db import models
 
+class ContactOptionCode(models.Model):
+    contact_option_code_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.contact_option_code_name
 class SupplyMethod(models.Model):
     supply_method_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)

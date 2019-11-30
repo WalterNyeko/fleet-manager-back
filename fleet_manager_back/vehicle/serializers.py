@@ -32,7 +32,14 @@ from .models import (
     ElectronicallyInvoiced,
     SalesPreparationDate,
     SupplyMethod,
+    ContactOptionCode,
 )
+
+
+class ContactOptionCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactOptionCode
+        fields = "__all__"
 
 
 class SupplyMethodSerializer(serializers.ModelSerializer):
