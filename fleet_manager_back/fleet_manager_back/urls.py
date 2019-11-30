@@ -3,9 +3,36 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
-from vehicle.views import VehicleInsuranceCompanyView, VehicleView, VehicleBodyTypeView, VehicleClientView, VehicleCompanyCodeView, VehicleConventionTypeView, VehicleCountyView, VehicleCountryView,VehicleCostCenterView, VehicleCurrencyCodesView, VehicleDeductabilityView, VehicleFuelTypeView, VehicleGearBoxView,VehicleInPullView, VehicleLocationCodeView, VehicleMakeCodeView, VehicleModelCodeView, VehicleReturnedWorkshopView, VehicleStatusView, VehicleTypeView, VehicleTyreView
+from vehicle.views import (
+    VehicleInsuranceCompanyView,
+    VehicleView,
+    VehicleBodyTypeView,
+    VehicleClientView,
+    VehicleCompanyCodeView,
+    VehicleConventionTypeView,
+    VehicleCountyView,
+    VehicleCountryView,
+    VehicleCostCenterView,
+    VehicleCurrencyCodesView,
+    VehicleDeductabilityView,
+    VehicleFuelTypeView,
+    VehicleGearBoxView,
+    VehicleInPullView,
+    VehicleLocationCodeView,
+    VehicleMakeCodeView,
+    VehicleModelCodeView,
+    VehicleReturnedWorkshopView,
+    VehicleStatusView,
+    VehicleTypeView,
+    VehicleTyreView,
+    VehicleSummaryView,
+    VehicleBasicView,
+    VehicleDiaryView,
+    VehicleInsuranceCompanyView
+)
 
 # Serializers define the API representation.
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,27 +51,32 @@ class UserViewSet(viewsets.ModelViewSet):
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r"users", UserViewSet)
-router.register(r'vehicles', VehicleView)
-router.register(r'vehicleclient', VehicleClientView)
-router.register(r'vehiclebodytypes', VehicleBodyTypeView)
-router.register(r'vehiclecompanycode', VehicleCompanyCodeView)
-router.register(r'vehicleconventiontype', VehicleConventionTypeView)
-router.register(r'vehiclecostcenter', VehicleCostCenterView)
-router.register(r'vehiclecounty', VehicleCountyView)
-router.register(r'vehiclecountry', VehicleCountryView)
-router.register(r'vehiclecurrencycodes', VehicleCurrencyCodesView)
-router.register(r'vehicledeductability', VehicleDeductabilityView)
-router.register(r'vehiclefueltype', VehicleFuelTypeView)
-router.register(r'vehiclegearbox', VehicleGearBoxView)
-router.register(r'vehicleinpull', VehicleInPullView)
-router.register(r'vehiclelocationcode', VehicleLocationCodeView)
-router.register(r'vehiclemakecode', VehicleMakeCodeView)
-router.register(r'vehiclemodelcode', VehicleModelCodeView)
-router.register(r'vehiclereturnedworkshop', VehicleReturnedWorkshopView)
-router.register(r'vehiclestatus', VehicleStatusView)
-router.register(r'vehicletypes', VehicleTypeView)
-router.register(r'vehicletyres', VehicleTyreView)
-router.register(r'vehicleinsurancecompany', VehicleInsuranceCompanyView)
+router.register(r"vehicles", VehicleView)
+router.register(r"vehicleclient", VehicleClientView)
+router.register(r"vehiclebodytypes", VehicleBodyTypeView)
+router.register(r"vehiclecompanycode", VehicleCompanyCodeView)
+router.register(r"vehicleconventiontype", VehicleConventionTypeView)
+router.register(r"vehiclecostcenter", VehicleCostCenterView)
+router.register(r"vehiclecounty", VehicleCountyView)
+router.register(r"vehiclecountry", VehicleCountryView)
+router.register(r"vehiclecurrencycodes", VehicleCurrencyCodesView)
+router.register(r"vehicledeductability", VehicleDeductabilityView)
+router.register(r"vehiclefueltype", VehicleFuelTypeView)
+router.register(r"vehiclegearbox", VehicleGearBoxView)
+router.register(r"vehicleinpull", VehicleInPullView)
+router.register(r"vehiclelocationcode", VehicleLocationCodeView)
+router.register(r"vehiclemakecode", VehicleMakeCodeView)
+router.register(r"vehiclemodelcode", VehicleModelCodeView)
+router.register(r"vehiclereturnedworkshop", VehicleReturnedWorkshopView)
+router.register(r"vehiclestatus", VehicleStatusView)
+router.register(r"vehicletypes", VehicleTypeView)
+router.register(r"vehicletyres", VehicleTyreView)
+router.register(r"vehiclesummary", VehicleSummaryView)
+router.register(r"vehicleinsurancecompany", VehicleInsuranceCompanyView)
+router.register(r"vehiclebasic", VehicleBasicView)
+router.register(r"vehiclediary", VehicleDiaryView)
+router.register(r"vehicleinsurancecompany", VehicleInsuranceCompanyView)
+
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
