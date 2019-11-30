@@ -27,8 +27,43 @@ from .models import (
     VehicleInsuranceCompany,
     VehicleAllocation,
     VehicleAssets,
-    VehicleComponents
+    VehicleComponents,
+    VehicleLease,
+    ElectronicallyInvoiced,
+    SalesPreparationDate,
+    SupplyMethod,
+    ContactOptionCode,
 )
+
+
+class ContactOptionCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactOptionCode
+        fields = "__all__"
+
+
+class SupplyMethodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SupplyMethod
+        fields = "__all__"
+
+
+class SalesPreparationDateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SalesPreparationDate
+        fields = "__all__"
+
+
+class ElectronicallyInvoicedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ElectronicallyInvoiced
+        fields = "__all__"
+
+
+class VehicleLeaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleLease
+        fields = "__all__"
 
 
 class VehicleComponentsSerializer(serializers.ModelSerializer):

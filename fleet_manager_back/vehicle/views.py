@@ -28,6 +28,11 @@ from .models import (
     VehicleAllocation,
     VehicleAssets,
     VehicleComponents,
+    VehicleLease,
+    ElectronicallyInvoiced,
+    SalesPreparationDate,
+    SupplyMethod,
+    ContactOptionCode
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -58,8 +63,43 @@ from .serializers import (
     VehicleAllocationSerializer,
     VehicleAssetsSerializer,
     VehicleComponentsSerializer,
+    VehicleLeaseSerializer,
+    ElectronicallyInvoicedSerializer,
+    SalesPreparationDateSerializer,
+    SupplyMethodSerializer,
+    ContactOptionCodeSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class ContactOptionCodeView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ContactOptionCode.objects.all()
+    serializer_class = ContactOptionCodeSerializer
+
+
+class SupplyMethodView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = SupplyMethod.objects.all()
+    serializer_class = SupplyMethodSerializer
+
+
+class SalesPreparationDateView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = SalesPreparationDate.objects.all()
+    serializer_class = SalesPreparationDateSerializer
+
+
+class ElectronicallyInvoicedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ElectronicallyInvoiced.objects.all()
+    serializer_class = ElectronicallyInvoicedSerializer
+
+
+class VehicleLeaseView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleLease.objects.all()
+    serializer_class = VehicleLeaseSerializer
 
 
 class VehicleComponentsView(viewsets.ModelViewSet):
