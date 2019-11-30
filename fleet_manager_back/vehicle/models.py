@@ -290,3 +290,16 @@ class VehicleAllocation(models.Model):
     allocation_reason = models.CharField(max_length=60)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
+class VehicleAssets(models.Model):
+    registration_no = models.CharField(max_length=60)
+    extra_registration_no = models.CharField(max_length=60)
+    asset_description = models.CharField(max_length=60)
+    asset_type = models.CharField(max_length=60)
+    asset_make = models.CharField(max_length=60)
+    asset_model = models.CharField(max_length=60)
+    asset_issue_date = models.CharField(max_length=60)
+    asset_return_date = models.CharField(max_length=60)
+    asset_serial = models.CharField(max_length=60)
+    driver_name = models.CharField(max_length=60)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
