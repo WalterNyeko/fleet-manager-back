@@ -1,12 +1,17 @@
 from django.db import models
 
+class RepairEstimationCost(models.Model):
+    repair_estimation_cost_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.repair_job_status_name
 class RepairPaperworkStatus(models.Model):
     repair_paperwork_status_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.repair_job_status_name
+        return self.repair_paperwork_status_name
 
 
 class RepairJobStatus(models.Model):
@@ -354,6 +359,15 @@ class RepairDescription(models.Model):
     cost_labour = models.CharField(max_length=60)
     cost_total_net = models.CharField(max_length=60)
     comments = models.CharField(max_length=60)
+    repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+class RepairEstimationCost(models.Model):
+    actual_labour_cost = models.CharField(max_length=60)
+    actual_parts_cost = models.CharField(max_length=60)
+    actual_tax_cost = models.CharField(max_length=60)
+    estimated_hours = models.CharField(max_length=60)
+    actual_total_gross = models.CharField(max_length=60)
+    actual_total_net = models.CharField(max_length=60)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     # accidents
