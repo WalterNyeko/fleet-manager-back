@@ -1,4 +1,10 @@
 from django.db import models
+class Weather(models.Model):
+    weather_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.weather_name
 class CostCenter(models.Model):
     cost_center_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -590,6 +596,7 @@ class AccidentBasic(models.Model):
     relationship = models.ForeignKey(Relationship, on_delete=models.CASCADE)
     other_vehicle_involved = models.ForeignKey(OtherVehicleInvolved, on_delete=models.CASCADE)
     cost_center = models.ForeignKey(CostCenter, on_delete=models.CASCADE)
+    weather= models.ForeignKey(Weather, on_delete=models.CASCADE)
 
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 

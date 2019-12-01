@@ -60,8 +60,15 @@ from .models import (
     Driver,
     Relationship,
     OtherVehicleInvolved,
-    CostCenter
+    CostCenter,
+    Weather,
 )
+
+
+class WeatherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Weather
+        fields = "__all__"
 
 
 class CostCenterSerializer(serializers.ModelSerializer):

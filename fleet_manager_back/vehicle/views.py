@@ -61,6 +61,7 @@ from .models import (
     Relationship,
     OtherVehicleInvolved,
     CostCenter,
+    Weather,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -124,8 +125,15 @@ from .serializers import (
     RelationshipSerializer,
     OtherVehicleInvolvedSerializer,
     CostCenterSerializer,
+    WeatherSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class WeatherView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = Weather.objects.all()
+    serializer_class = WeatherSerializer
 
 
 class CostCenterView(viewsets.ModelViewSet):
