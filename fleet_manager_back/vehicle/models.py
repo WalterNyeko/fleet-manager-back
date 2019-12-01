@@ -1,5 +1,12 @@
 from django.db import models
 
+class EntryGained(models.Model):
+    entry_gained_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.entry_gained_name
+
 class DoorsLocked(models.Model):
     doors_locked_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -633,6 +640,7 @@ class AccidentBasic(models.Model):
     damage_to_vehicle= models.ForeignKey(DamageToVehicle, on_delete=models.CASCADE)
     vehicle_broken= models.ForeignKey(VehicleBroken, on_delete=models.CASCADE)
     doors_locked= models.ForeignKey(DoorsLocked, on_delete=models.CASCADE)
+    entry_gained= models.ForeignKey(EntryGained, on_delete=models.CASCADE)
 
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
