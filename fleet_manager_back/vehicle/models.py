@@ -1,5 +1,10 @@
 from django.db import models
+class VehicleRecovered(models.Model):
+    vehicle_recovered_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.vehicle_recovered_name
 class EntryGained(models.Model):
     entry_gained_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -641,7 +646,7 @@ class AccidentBasic(models.Model):
     vehicle_broken= models.ForeignKey(VehicleBroken, on_delete=models.CASCADE)
     doors_locked= models.ForeignKey(DoorsLocked, on_delete=models.CASCADE)
     entry_gained= models.ForeignKey(EntryGained, on_delete=models.CASCADE)
-
+    vehicle_recovered= models.ForeignKey(VehicleRecovered, on_delete=models.CASCADE)
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
 class VehicleAllocation(models.Model):

@@ -68,6 +68,7 @@ from .models import (
     VehicleBroken,
     DoorsLocked,
     EntryGained,
+    VehicleRecovered,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -138,8 +139,15 @@ from .serializers import (
     VehicleBrokenSerializer,
     DoorsLockedSerializer,
     EntryGainedSerializer,
+    VehicleRecoveredSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class VehicleRecoveredView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleRecovered.objects.all()
+    serializer_class = VehicleRecoveredSerializer
 
 
 class EntryGainedView(viewsets.ModelViewSet):
