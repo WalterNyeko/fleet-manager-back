@@ -39,6 +39,7 @@ from .models import (
     RepairInvoiceDetails,
     RepairInvoicedTo,
     RepairRecievedBy,
+    RepairInvoiceRecieved,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -80,8 +81,15 @@ from .serializers import (
     RepairInvoiceDetailsSerializer,
     RepairInvoicedToSerializer,
     RepairRecievedBySerializer,
+    RepairInvoiceRecievedSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class RepairRecievedInvoiceView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = RepairInvoiceRecieved.objects.all()
+    serializer_class = RepairInvoiceRecievedSerializer
 
 
 class RepairRecievedByView(viewsets.ModelViewSet):

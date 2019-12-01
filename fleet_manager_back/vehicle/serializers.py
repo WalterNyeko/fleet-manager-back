@@ -39,7 +39,14 @@ from .models import (
     RepairInvoiceDetails,
     RepairInvoicedTo,
     RepairRecievedBy,
+    RepairInvoiceRecieved,
 )
+
+
+class RepairInvoiceRecievedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairInvoiceRecieved
+        fields = "__all__"
 
 
 class RepairRecievedBySerializer(serializers.ModelSerializer):
