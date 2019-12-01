@@ -56,7 +56,98 @@ from .models import (
     DriverLicenseRecieved,
     ClaimRepairEstimate,
     ClaimInspectionReport,
+    AccidentBasic,
+    Driver,
+    Relationship,
+    OtherVehicleInvolved,
+    CostCenter,
+    Weather,
+    RoadType,
+    RoadConditions,
+    DamageToVehicle,
+    VehicleBroken,
+    DoorsLocked,
+    EntryGained,
+    VehicleRecovered,
 )
+
+
+class VehicleRecoveredSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleRecovered
+        fields = "__all__"
+
+
+class EntryGainedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EntryGained
+        fields = "__all__"
+
+
+class DoorsLockedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DoorsLocked
+        fields = "__all__"
+
+
+class VehicleBrokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleBroken
+        fields = "__all__"
+
+
+class DamageToVehicleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DamageToVehicle
+        fields = "__all__"
+
+
+class RoadConditionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RoadConditions
+        fields = "__all__"
+
+
+class RoadTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RoadType
+        fields = "__all__"
+
+
+class WeatherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Weather
+        fields = "__all__"
+
+
+class CostCenterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CostCenter
+        fields = "__all__"
+
+
+class OtherVehicleInvolvedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OtherVehicleInvolved
+        fields = "__all__"
+
+
+class RelationshipSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Relationship
+        fields = "__all__"
+
+
+class DriverSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Driver
+        fields = "__all__"
+
+
+class AccidentBasicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentBasic
+        fields = "__all__"
 
 
 class ClaimInspectionReportSerializer(serializers.ModelSerializer):

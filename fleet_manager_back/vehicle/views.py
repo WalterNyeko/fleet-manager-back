@@ -56,6 +56,19 @@ from .models import (
     DriverLicenseRecieved,
     ClaimRepairEstimate,
     ClaimInspectionReport,
+    AccidentBasic,
+    Driver,
+    Relationship,
+    OtherVehicleInvolved,
+    CostCenter,
+    Weather,
+    RoadType,
+    RoadConditions,
+    DamageToVehicle,
+    VehicleBroken,
+    DoorsLocked,
+    EntryGained,
+    VehicleRecovered,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -114,8 +127,99 @@ from .serializers import (
     DriverLicenseRecievedSerializer,
     ClaimRepairEstimateSerializer,
     ClaimInspectionReportSerializer,
+    AccidentBasicSerializer,
+    DriverSerializer,
+    RelationshipSerializer,
+    OtherVehicleInvolvedSerializer,
+    CostCenterSerializer,
+    WeatherSerializer,
+    RoadTypeSerializer,
+    RoadConditionsSerializer,
+    DamageToVehicleSerializer,
+    VehicleBrokenSerializer,
+    DoorsLockedSerializer,
+    EntryGainedSerializer,
+    VehicleRecoveredSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class VehicleRecoveredView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleRecovered.objects.all()
+    serializer_class = VehicleRecoveredSerializer
+
+
+class EntryGainedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = EntryGained.objects.all()
+    serializer_class = EntryGainedSerializer
+
+
+class DoorsLockedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = DoorsLocked.objects.all()
+    serializer_class = DoorsLockedSerializer
+
+
+class VehicleBrokenView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleBroken.objects.all()
+    serializer_class = VehicleBrokenSerializer
+
+
+class DamageToVehicleView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = DamageToVehicle.objects.all()
+    serializer_class = DamageToVehicleSerializer
+
+
+class RoadConditionsView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = RoadConditions.objects.all()
+    serializer_class = RoadConditionsSerializer
+
+
+class RoadTypeView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = RoadType.objects.all()
+    serializer_class = RoadTypeSerializer
+
+
+class WeatherView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = Weather.objects.all()
+    serializer_class = WeatherSerializer
+
+
+class CostCenterView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = CostCenter.objects.all()
+    serializer_class = CostCenterSerializer
+
+
+class OtherVehicleInvolvedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = OtherVehicleInvolved.objects.all()
+    serializer_class = OtherVehicleInvolvedSerializer
+
+
+class RelationshipView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = Relationship.objects.all()
+    serializer_class = RelationshipSerializer
+
+
+class DriverView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = Driver.objects.all()
+    serializer_class = DriverSerializer
+
+
+class AccidentBasicView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentBasic.objects.all()
+    serializer_class = AccidentBasicSerializer
 
 
 class ClaimInspectionReportView(viewsets.ModelViewSet):
