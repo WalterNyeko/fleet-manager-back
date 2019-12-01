@@ -69,7 +69,35 @@ from .models import (
     DoorsLocked,
     EntryGained,
     VehicleRecovered,
+    AccidentDetails,
+    ThirdPartiesInvolved,
+    AccidentVor,
+    WriteOff,
 )
+
+
+class WriteOffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WriteOff
+        fields = "__all__"
+
+
+class AccidentVorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentVor
+        fields = "__all__"
+
+
+class ThirdPartiesInvolvedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ThirdPartiesInvolved
+        fields = "__all__"
+
+
+class AccidentDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentDetails
+        fields = "__all__"
 
 
 class VehicleRecoveredSerializer(serializers.ModelSerializer):

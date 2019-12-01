@@ -69,6 +69,10 @@ from .models import (
     DoorsLocked,
     EntryGained,
     VehicleRecovered,
+    AccidentDetails,
+    ThirdPartiesInvolved,
+    AccidentVor,
+    WriteOff,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -140,8 +144,33 @@ from .serializers import (
     DoorsLockedSerializer,
     EntryGainedSerializer,
     VehicleRecoveredSerializer,
+    AccidentDetailsSerializer,
+    ThirdPartiesInvolvedSerializer,
+    AccidentVorSerializer,
+    WriteOffSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+class WriteOffView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = WriteOff.objects.all()
+    serializer_class = WriteOffSerializer
+class AccidentVorView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentVor.objects.all()
+    serializer_class = AccidentVorSerializer
+
+
+class ThirdPartiesInvolvedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ThirdPartiesInvolved.objects.all()
+    serializer_class = ThirdPartiesInvolvedSerializer
+
+
+class AccidentDetailsView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentDetails.objects.all()
+    serializer_class = AccidentDetailsSerializer
 
 
 class VehicleRecoveredView(viewsets.ModelViewSet):
