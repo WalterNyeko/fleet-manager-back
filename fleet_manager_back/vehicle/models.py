@@ -1,11 +1,14 @@
 from django.db import models
 
+
 class RepairPaperworkStatus(models.Model):
     repair_paperwork_status_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.repair_job_status_name
+
+
 class RepairJobStatus(models.Model):
     repair_job_status_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -344,7 +347,13 @@ class RepairDescription(models.Model):
     cost_center = models.CharField(max_length=60)
     service_advice = models.CharField(max_length=60)
     repair_job_status = models.ForeignKey(RepairJobStatus, on_delete=models.CASCADE)
-    repair_paperwork_status = models.ForeignKey(RepairPaperworkStatus, on_delete=models.CASCADE)
+    repair_paperwork_status = models.ForeignKey(
+        RepairPaperworkStatus, on_delete=models.CASCADE
+    )
+    cost_parts = models.CharField(max_length=60)
+    cost_labour = models.CharField(max_length=60)
+    cost_total_net = models.CharField(max_length=60)
+    comments = models.CharField(max_length=60)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     # accidents
