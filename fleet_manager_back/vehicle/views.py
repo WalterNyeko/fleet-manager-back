@@ -46,6 +46,7 @@ from .models import (
     VehicleAccident,
     AccidentType,
     TypeOfLossClaim,
+    AccidentStatus,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -94,8 +95,15 @@ from .serializers import (
     VehicleAccidentSerializer,
     AccidentTypeSerializer,
     TypeOfLossClaimSerializer,
+    AccidentStatusSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class AccidentStatusView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentStatus.objects.all()
+    serializer_class = AccidentStatusSerializer
 
 
 class TypeOfLossClaimView(viewsets.ModelViewSet):

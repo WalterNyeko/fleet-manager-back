@@ -1,4 +1,7 @@
 from django.db import models
+class AccidentStatus(models.Model):
+    accident_status_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 class TypeOfLossClaim(models.Model):
     type_of_loss_claim_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
