@@ -49,6 +49,7 @@ from .models import (
     AccidentStatus,
     LiabilityFlag,
     BrokersName,
+    PartyToBlame,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -100,8 +101,15 @@ from .serializers import (
     AccidentStatusSerializer,
     LiabilityFlagSerializer,
     BrokersNameSerializer,
+    PartyToBlameSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class PartyToBlameView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = PartyToBlame.objects.all()
+    serializer_class = PartyToBlameSerializer
 
 
 class BrokersNameView(viewsets.ModelViewSet):

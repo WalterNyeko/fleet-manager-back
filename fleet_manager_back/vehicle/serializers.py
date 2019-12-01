@@ -49,7 +49,14 @@ from .models import (
     AccidentStatus,
     LiabilityFlag,
     BrokersName,
+    PartyToBlame,
 )
+
+
+class PartyToBlameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PartyToBlame
+        fields = "__all__"
 
 
 class BrokersNameSerializer(serializers.ModelSerializer):
