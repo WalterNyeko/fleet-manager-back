@@ -66,7 +66,14 @@ from .models import (
     RoadConditions,
     DamageToVehicle,
     VehicleBroken,
+    DoorsLocked,
 )
+
+
+class DoorsLockedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DoorsLocked
+        fields = "__all__"
 
 
 class VehicleBrokenSerializer(serializers.ModelSerializer):
