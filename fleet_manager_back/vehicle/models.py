@@ -1,6 +1,8 @@
 from django.db import models
 
-
+class RepairRecharge(models.Model):
+    repair_recharge_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 class RepairInvoicePaid(models.Model):
     repair_invoice_paid_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -413,6 +415,9 @@ class RepairInvoiceDetails(models.Model):
     )
     repair_invoiced_paid = models.ForeignKey(
         RepairInvoicePaid, on_delete=models.CASCADE
+    )
+    repair_recharge = models.ForeignKey(
+        RepairRecharge, on_delete=models.CASCADE
     )
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
