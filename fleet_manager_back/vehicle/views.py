@@ -33,6 +33,7 @@ from .models import (
     RepairDescription,
     RepairWorkshop,
     RepairReason,
+    RepairJobStatus,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -68,8 +69,15 @@ from .serializers import (
     RepairDescriptionSerializer,
     RepairWorkshopSerializer,
     RepairReasonSerializer,
+    RepairJobStatusSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class RepairJobStatusView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = RepairJobStatus.objects.all()
+    serializer_class = RepairJobStatusSerializer
 
 
 class RepairReasonView(viewsets.ModelViewSet):

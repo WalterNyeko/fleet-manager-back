@@ -33,7 +33,14 @@ from .models import (
     RepairDescription,
     RepairWorkshop,
     RepairReason,
+    RepairJobStatus,
 )
+
+
+class RepairJobStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairJobStatus
+        fields = "__all__"
 
 
 class RepairReasonSerializer(serializers.ModelSerializer):

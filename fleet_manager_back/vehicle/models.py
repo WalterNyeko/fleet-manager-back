@@ -1,6 +1,14 @@
 from django.db import models
 
 
+class RepairJobStatus(models.Model):
+    repair_job_status_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.repair_job_status_name
+
+
 class RepairReason(models.Model):
     repair_reason_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -322,6 +330,15 @@ class RepairDescription(models.Model):
     repair_workshop = models.ForeignKey(RepairWorkshop, on_delete=models.CASCADE)
     division_client = models.CharField(max_length=60)
     repair_reason = models.ForeignKey(RepairReason, on_delete=models.CASCADE)
+    service_type = models.CharField(max_length=60)
+    job_date = models.CharField(max_length=60)
+    job_end_date = models.CharField(max_length=60)
+    odometer_in = models.CharField(max_length=60)
+    odometer_out = models.CharField(max_length=60)
+    days_off_road = models.CharField(max_length=60)
+    cost_center = models.CharField(max_length=60)
+    service_advice = models.CharField(max_length=60)
+    repair_job_status = models.ForeignKey(RepairJobStatus, on_delete=models.CASCADE)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     # accidents
