@@ -57,7 +57,8 @@ from .models import (
     ClaimRepairEstimate,
     ClaimInspectionReport,
     AccidentBasic,
-    Driver
+    Driver,
+    Relationship,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -117,9 +118,16 @@ from .serializers import (
     ClaimRepairEstimateSerializer,
     ClaimInspectionReportSerializer,
     AccidentBasicSerializer,
-    DriverSerializer
+    DriverSerializer,
+    RelationshipSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class RelationshipView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = Relationship.objects.all()
+    serializer_class = RelationshipSerializer
 
 
 class DriverView(viewsets.ModelViewSet):

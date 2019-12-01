@@ -58,7 +58,14 @@ from .models import (
     ClaimInspectionReport,
     AccidentBasic,
     Driver,
+    Relationship,
 )
+
+
+class RelationshipSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Relationship
+        fields = "__all__"
 
 
 class DriverSerializer(serializers.ModelSerializer):

@@ -1,4 +1,10 @@
 from django.db import models
+class Relationship(models.Model):
+    relationship_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.relationship_name
 class Driver(models.Model):
     driver_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -568,7 +574,9 @@ class AccidentDescription(models.Model):
 
 class AccidentBasic(models.Model):
     broker_reference = models.CharField(max_length=60)
-    claim_form_recieved = models.ForeignKey(ClaimFormRecieved, on_delete=models.CASCADE)
+    driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    relationship = models.ForeignKey(Relationship, on_delete=models.CASCADE)
+
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
 class VehicleAllocation(models.Model):
