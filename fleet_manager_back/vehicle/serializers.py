@@ -45,12 +45,19 @@ from .models import (
     RepairServiceHistory,
     VehicleAccident,
     AccidentType,
+    TypeOfLossClaim,
 )
 
 
 class AccidentTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = AccidentType
+        fields = "__all__"
+
+
+class TypeOfLossClaimSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TypeOfLossClaim
         fields = "__all__"
 
 
