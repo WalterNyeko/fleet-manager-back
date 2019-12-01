@@ -43,6 +43,13 @@ from .models import (
     RepairInvoicePaid,
     RepairRecharge,
     RepairServiceHistory,
+    VehicleAccident,
+    AccidentType,
+    TypeOfLossClaim,
+    AccidentStatus,
+    LiabilityFlag,
+    BrokersName,
+    PartyToBlame,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -88,8 +95,57 @@ from .serializers import (
     RepairInvoicePaidSerializer,
     RepairRechargeSerializer,
     RepairServiceHistorySerializer,
+    VehicleAccidentSerializer,
+    AccidentTypeSerializer,
+    TypeOfLossClaimSerializer,
+    AccidentStatusSerializer,
+    LiabilityFlagSerializer,
+    BrokersNameSerializer,
+    PartyToBlameSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class PartyToBlameView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = PartyToBlame.objects.all()
+    serializer_class = PartyToBlameSerializer
+
+
+class BrokersNameView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = BrokersName.objects.all()
+    serializer_class = BrokersNameSerializer
+
+
+class LiabilityFlagView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = LiabilityFlag.objects.all()
+    serializer_class = LiabilityFlagSerializer
+
+
+class AccidentStatusView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentStatus.objects.all()
+    serializer_class = AccidentStatusSerializer
+
+
+class TypeOfLossClaimView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = TypeOfLossClaim.objects.all()
+    serializer_class = TypeOfLossClaimSerializer
+
+
+class AccidentTypeView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentType.objects.all()
+    serializer_class = AccidentTypeSerializer
+
+
+class VehicleAccidentView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleAccident.objects.all()
+    serializer_class = VehicleAccidentSerializer
 
 
 class RepairServiceHistoryView(viewsets.ModelViewSet):

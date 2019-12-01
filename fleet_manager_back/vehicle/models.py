@@ -1,5 +1,25 @@
 from django.db import models
-
+class CompanyCode(models.Model):
+    company_code_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+class PartyToBlame(models.Model):
+    party_to_blame_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+class BrokersName(models.Model):
+    brokers_name_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+class LiabilityFlag(models.Model):
+    liability_flag_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+class AccidentStatus(models.Model):
+    accident_status_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+class TypeOfLossClaim(models.Model):
+    type_of_loss_claim_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+class AccidentType(models.Model):
+    accident_type_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
 class RepairServiceHistory(models.Model):
     repair_recharge_name = models.CharField(max_length=250)
@@ -461,7 +481,25 @@ class RepairServiceHistory(models.Model):
     date = models.CharField(max_length=60)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
-    # accidents
+class VehicleAccident(models.Model):
+    accident_ref = models.CharField(max_length=60)
+    date = models.CharField(max_length=60)
+    claim_handler = models.CharField(max_length=60)
+    created_by = models.CharField(max_length=60)
+    accident_type = models.ForeignKey(AccidentType, on_delete=models.CASCADE)
+    accident_report_from_recieved = models.CharField(max_length=60)
+    date_claim_completed = models.CharField(max_length=60)
+    type_of_loss_claim = models.ForeignKey(TypeOfLossClaim, on_delete=models.CASCADE)
+    date_insurers_notified = models.CharField(max_length=60)
+    accident_status = models.ForeignKey(AccidentStatus, on_delete=models.CASCADE)
+    insurance_reference = models.CharField(max_length=60)
+    liability_flag = models.ForeignKey(LiabilityFlag, on_delete=models.CASCADE)
+    brokers_name = models.ForeignKey(BrokersName, on_delete=models.CASCADE)
+    broker_reference = models.CharField(max_length=60)
+    party_to_blame = models.ForeignKey(PartyToBlame, on_delete=models.CASCADE)
+    company_code = models.ForeignKey(CompanyCode, on_delete=models.CASCADE)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
 
 
 class VehicleAllocation(models.Model):

@@ -43,7 +43,56 @@ from .models import (
     RepairInvoicePaid,
     RepairRecharge,
     RepairServiceHistory,
+    VehicleAccident,
+    AccidentType,
+    TypeOfLossClaim,
+    AccidentStatus,
+    LiabilityFlag,
+    BrokersName,
+    PartyToBlame,
 )
+
+
+class PartyToBlameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PartyToBlame
+        fields = "__all__"
+
+
+class BrokersNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BrokersName
+        fields = "__all__"
+
+
+class LiabilityFlagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LiabilityFlag
+        fields = "__all__"
+
+
+class AccidentStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentStatus
+        fields = "__all__"
+
+
+class AccidentTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentType
+        fields = "__all__"
+
+
+class TypeOfLossClaimSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TypeOfLossClaim
+        fields = "__all__"
+
+
+class VehicleAccidentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleAccident
+        fields = "__all__"
 
 
 class RepairServiceHistorySerializer(serializers.ModelSerializer):
