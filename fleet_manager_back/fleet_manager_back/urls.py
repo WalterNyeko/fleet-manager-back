@@ -35,6 +35,21 @@ from vehicle.views import (
     VehicleRepairView,
     VehicleAccidentView,
 )
+from vehicle_hire.views import (
+    VehicleHireView,
+    VehicleHireRentalRevenueView,
+    VehicleHireRentalRevenueInvoicedByView,
+    VehicleHireRentalPaymentRecievedByView,
+    VehicleHireCostCenterView, 
+    VehicleHireReasonView,
+    VehicleHireRentalStatusView,
+    VehicleHireStatusView, 
+    VehicleHireRentalCollectionDetailsView,
+    VehicleHireRentalDetailHiringDivisionView,
+    VehicleHireRentalInvoicesToView, 
+    VehicleHireRentalPaymentRecievedView,
+    VehicleHireRentalPaymentStatusView
+)
 
 # Serializers define the API representation.
 
@@ -86,6 +101,23 @@ router.register(r"vehicleassets", VehicleAssetsView)
 router.register(r"vehiclenotes", VehicleNotesView)
 router.register(r"vehiclerepair", VehicleRepairView)
 router.register(r"vehicleaccident", VehicleRepairView)
+
+router.register(r'vehiclehire',VehicleHireView)
+router.register(r'vehiclehirecostcenter',VehicleHireCostCenterView)
+router.register(r'vehicle_hire_reason', VehicleHireReasonView)
+router.register(r'vehicle_hire_rental_status', VehicleHireRentalStatusView)
+router.register(r'vehicle_hire_status', VehicleHireStatusView)
+router.register(r'vehicle_hire_rental_collection_details', VehicleHireRentalCollectionDetailsView)
+router.register(r'vehicle_hire_rental_detail_hiring_division', VehicleHireRentalCollectionDetailsView)
+router.register(r'vehicle_hire_rental_invoices_to', VehicleHireRentalInvoicesToView)
+router.register(r'vehicle_hire_rental_payment_recieved', VehicleHireRentalPaymentRecievedView)
+router.register(r'vehicle_hire_rental_payment_recieved_by', VehicleHireRentalPaymentRecievedByView)
+router.register(r'vehicle_hire_rental_payment_status', VehicleHireRentalPaymentStatusView)
+router.register(r'vehicle_hire_rental_revenue_invoiced_by', VehicleHireRentalRevenueInvoicedByView)
+router.register(r'vehicle_rental_revenue',VehicleHireRentalRevenueView)
+router.register(r'vehicle_hire_rental_collection_details', VehicleHireRentalCollectionDetailsView)
+
+
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
