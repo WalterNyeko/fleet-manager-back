@@ -482,16 +482,22 @@ class RepairServiceHistory(models.Model):
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
 class VehicleAccident(models.Model):
-    job_authorization_no = models.CharField(max_length=60)
-
+    accident_ref = models.CharField(max_length=60)
+    date = models.CharField(max_length=60)
+    claim_handler = models.CharField(max_length=60)
+    created_by = models.CharField(max_length=60)
     accident_type = models.ForeignKey(AccidentType, on_delete=models.CASCADE)
+    accident_report_from_recieved = models.CharField(max_length=60)
+    date_claim_completed = models.CharField(max_length=60)
     type_of_loss_claim = models.ForeignKey(TypeOfLossClaim, on_delete=models.CASCADE)
+    date_insurers_notified = models.CharField(max_length=60)
     accident_status = models.ForeignKey(AccidentStatus, on_delete=models.CASCADE)
+    insurance_reference = models.CharField(max_length=60)
     liability_flag = models.ForeignKey(LiabilityFlag, on_delete=models.CASCADE)
     brokers_name = models.ForeignKey(BrokersName, on_delete=models.CASCADE)
+    broker_reference = models.CharField(max_length=60)
     party_to_blame = models.ForeignKey(PartyToBlame, on_delete=models.CASCADE)
     company_code = models.ForeignKey(CompanyCode, on_delete=models.CASCADE)
-
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
 
