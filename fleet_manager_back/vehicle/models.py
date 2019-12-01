@@ -1,5 +1,7 @@
 from django.db import models
-
+class AccidentType(models.Model):
+    accident_type_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
 class RepairServiceHistory(models.Model):
     repair_recharge_name = models.CharField(max_length=250)
@@ -461,7 +463,12 @@ class RepairServiceHistory(models.Model):
     date = models.CharField(max_length=60)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
-    # accidents
+class VehicleAccident(models.Model):
+    job_authorization_no = models.CharField(max_length=60)
+
+    accident_type= models.ForeignKey(AccidentType, on_delete=models.CASCADE)
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
 
 
 class VehicleAllocation(models.Model):

@@ -43,7 +43,21 @@ from .models import (
     RepairInvoicePaid,
     RepairRecharge,
     RepairServiceHistory,
+    VehicleAccident,
+    AccidentType,
 )
+
+
+class AccidentTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentType
+        fields = "__all__"
+
+
+class VehicleAccidentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleAccident
+        fields = "__all__"
 
 
 class RepairServiceHistorySerializer(serializers.ModelSerializer):

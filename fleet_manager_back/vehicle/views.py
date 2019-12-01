@@ -43,6 +43,8 @@ from .models import (
     RepairInvoicePaid,
     RepairRecharge,
     RepairServiceHistory,
+    VehicleAccident,
+    AccidentType,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -88,8 +90,22 @@ from .serializers import (
     RepairInvoicePaidSerializer,
     RepairRechargeSerializer,
     RepairServiceHistorySerializer,
+    VehicleAccidentSerializer,
+    AccidentTypeSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class AccidentTypeView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentType.objects.all()
+    serializer_class = AccidentTypeSerializer
+
+
+class VehicleAccidentView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = VehicleAccident.objects.all()
+    serializer_class = VehicleAccidentSerializer
 
 
 class RepairServiceHistoryView(viewsets.ModelViewSet):
