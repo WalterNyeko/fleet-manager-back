@@ -1,4 +1,10 @@
 from django.db import models
+class OtherVehicleInvolved(models.Model):
+    other_vehicle_involved_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.other_vehicle_involved_name
 class Relationship(models.Model):
     relationship_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -576,6 +582,7 @@ class AccidentBasic(models.Model):
     broker_reference = models.CharField(max_length=60)
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     relationship = models.ForeignKey(Relationship, on_delete=models.CASCADE)
+    other_vehicle_involved = models.ForeignKey(OtherVehicleInvolved, on_delete=models.CASCADE)
 
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 

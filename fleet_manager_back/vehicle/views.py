@@ -59,6 +59,7 @@ from .models import (
     AccidentBasic,
     Driver,
     Relationship,
+    OtherVehicleInvolved,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -120,8 +121,15 @@ from .serializers import (
     AccidentBasicSerializer,
     DriverSerializer,
     RelationshipSerializer,
+    OtherVehicleInvolvedSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class OtherVehicleInvolvedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = OtherVehicleInvolved.objects.all()
+    serializer_class = OtherVehicleInvolvedSerializer
 
 
 class RelationshipView(viewsets.ModelViewSet):

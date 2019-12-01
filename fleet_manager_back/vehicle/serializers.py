@@ -59,7 +59,14 @@ from .models import (
     AccidentBasic,
     Driver,
     Relationship,
+    OtherVehicleInvolved,
 )
+
+
+class OtherVehicleInvolvedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OtherVehicleInvolved
+        fields = "__all__"
 
 
 class RelationshipSerializer(serializers.ModelSerializer):
