@@ -60,7 +60,14 @@ from .models import (
     Driver,
     Relationship,
     OtherVehicleInvolved,
+    CostCenter
 )
+
+
+class CostCenterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CostCenter
+        fields = "__all__"
 
 
 class OtherVehicleInvolvedSerializer(serializers.ModelSerializer):

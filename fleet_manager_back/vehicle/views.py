@@ -60,6 +60,7 @@ from .models import (
     Driver,
     Relationship,
     OtherVehicleInvolved,
+    CostCenter,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -122,8 +123,15 @@ from .serializers import (
     DriverSerializer,
     RelationshipSerializer,
     OtherVehicleInvolvedSerializer,
+    CostCenterSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class CostCenterView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = CostCenter.objects.all()
+    serializer_class = CostCenterSerializer
 
 
 class OtherVehicleInvolvedView(viewsets.ModelViewSet):
