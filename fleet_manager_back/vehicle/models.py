@@ -1,8 +1,16 @@
 from django.db import models
 
+
+class RepairServiceHistory(models.Model):
+    repair_recharge_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+
 class RepairRecharge(models.Model):
     repair_recharge_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
+
+
 class RepairInvoicePaid(models.Model):
     repair_invoice_paid_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -420,13 +428,37 @@ class RepairInvoiceDetails(models.Model):
     invoice_parts = models.CharField(max_length=60)
     invoice_labour = models.CharField(max_length=60)
     total_invoice = models.CharField(max_length=60)
-    repair_recharge = models.ForeignKey(
-        RepairRecharge, on_delete=models.CASCADE
-    )
+    repair_recharge = models.ForeignKey(RepairRecharge, on_delete=models.CASCADE)
     invoice_comment = models.CharField(max_length=60)
     total_tax = models.CharField(max_length=60)
     location_code = models.CharField(max_length=60)
     total_gross = models.CharField(max_length=60)
+    repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+
+class RepairServiceHistory(models.Model):
+    job_authorization_no = models.CharField(max_length=60)
+    workshop = models.CharField(max_length=60)
+    job_status = models.CharField(max_length=60)
+    registration_no = models.CharField(max_length=60)
+    extra_registration_no = models.CharField(max_length=60)
+    model_code = models.CharField(max_length=60)
+    division_code = models.CharField(max_length=60)
+    cost_center = models.CharField(max_length=60)
+    odometer_in = models.CharField(max_length=60)
+    reason = models.CharField(max_length=60)
+    job_date= models.CharField(max_length=60)
+    job_end_date = models.CharField(max_length=60)
+    invoice = models.CharField(max_length=60)
+    total_invoice = models.CharField(max_length=60)
+    comments = models.CharField(max_length=60)
+    repair_paperwork_status = models.CharField(max_length=60)
+    created_by = models.CharField(max_length=60)
+    cost_labour = models.CharField(max_length=60)
+    created_by = models.CharField(max_length=60)
+    date = models.CharField(max_length=60)
+    changed_by = models.CharField(max_length=60)
+    date = models.CharField(max_length=60)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     # accidents
