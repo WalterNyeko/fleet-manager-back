@@ -1,4 +1,29 @@
 from django.db import models
+
+class WriteOff(models.Model):
+    write_off_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.write_off_name
+class AccidentVor(models.Model):
+    accident_vor_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.accident_vor_name
+class ThirdPartiesInvolved(models.Model):
+    third_parties_involved_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.third_parties_involved_name
+class AccidentDetails(models.Model):
+    accident_details_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.accident_details_name
 class VehicleRecovered(models.Model):
     vehicle_recovered_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -680,6 +705,28 @@ class AccidentBasic(models.Model):
     vehicle_recovered= models.ForeignKey(VehicleRecovered, on_delete=models.CASCADE)
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
+class AccidentDetails(models.Model):
+    third_parties_involved= models.ForeignKey(ThirdPartiesInvolved, on_delete=models.CASCADE)
+    accident_ref = models.CharField(max_length=60)
+    item_number = models.CharField(max_length=60)
+    accident_date = models.CharField(max_length=60)
+    name = models.CharField(max_length=60)
+    address = models.CharField(max_length=60)
+    Telephone = models.CharField(max_length=60)
+    email = models.CharField(max_length=60)
+    tp_insur_comp = models.CharField(max_length=60)
+    tp_insur_comp_address = models.CharField(max_length=60)
+    tp_insur_comp_telephone = models.CharField(max_length=60)
+    tp_policy = models.CharField(max_length=60)
+    tp_dem_desc = models.CharField(max_length=60)
+    tp_veh = models.CharField(max_length=60)
+    exterior_color = models.CharField(max_length=60)
+    third_party_registration_no = models.CharField(max_length=60)
+    accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+class AccidentVor(models.Model):
+    write_off= models.ForeignKey(WriteOff, on_delete=models.CASCADE)
+    accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 class VehicleAllocation(models.Model):
     driver_name = models.CharField(max_length=60)
     registratyion_no = models.CharField(max_length=60)
