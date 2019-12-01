@@ -62,7 +62,14 @@ from .models import (
     OtherVehicleInvolved,
     CostCenter,
     Weather,
+    RoadType,
 )
+
+
+class RoadTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RoadType
+        fields = "__all__"
 
 
 class WeatherSerializer(serializers.ModelSerializer):
