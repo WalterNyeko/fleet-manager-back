@@ -48,6 +48,7 @@ from .models import (
     TypeOfLossClaim,
     AccidentStatus,
     LiabilityFlag,
+    BrokersName,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -98,8 +99,15 @@ from .serializers import (
     TypeOfLossClaimSerializer,
     AccidentStatusSerializer,
     LiabilityFlagSerializer,
+    BrokersNameSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class BrokersNameView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = BrokersName.objects.all()
+    serializer_class = BrokersNameSerializer
 
 
 class LiabilityFlagView(viewsets.ModelViewSet):
