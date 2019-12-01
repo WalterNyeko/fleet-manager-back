@@ -63,6 +63,7 @@ from .models import (
     CostCenter,
     Weather,
     RoadType,
+    RoadConditions,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -128,12 +129,22 @@ from .serializers import (
     CostCenterSerializer,
     WeatherSerializer,
     RoadTypeSerializer,
+    RoadConditionsSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class RoadConditionsView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = RoadConditions.objects.all()
+    serializer_class = RoadConditionsSerializer
+
+
 class RoadTypeView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]
     queryset = RoadType.objects.all()
     serializer_class = RoadTypeSerializer
+
 
 class WeatherView(viewsets.ModelViewSet):
     permission_class = [IsAuthenticated]
