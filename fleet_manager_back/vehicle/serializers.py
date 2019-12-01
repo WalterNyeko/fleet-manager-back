@@ -53,7 +53,14 @@ from .models import (
     AccidentDescription,
     ClaimFormRecieved,
     ClaimPoliceAbstract,
+    DriverLicenseRecieved,
 )
+
+
+class DriverLicenseRecievedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DriverLicenseRecieved
+        fields = "__all__"
 
 
 class ClaimPoliceAbstractSerializer(serializers.ModelSerializer):

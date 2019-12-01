@@ -53,6 +53,7 @@ from .models import (
     AccidentDescription,
     ClaimFormRecieved,
     ClaimPoliceAbstract,
+    DriverLicenseRecieved,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -108,8 +109,15 @@ from .serializers import (
     AccidentDescriptionSerializer,
     ClaimFormRecievedSerializer,
     ClaimPoliceAbstractSerializer,
+    DriverLicenseRecievedSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class DriverLicenseRecievedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = DriverLicenseRecieved.objects.all()
+    serializer_class = DriverLicenseRecievedSerializer
 
 
 class ClaimPoliceAbstractView(viewsets.ModelViewSet):
