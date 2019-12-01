@@ -406,19 +406,27 @@ class RepairEstimationCost(models.Model):
 
 
 class RepairInvoiceDetails(models.Model):
-    actual_total_net = models.CharField(max_length=60)
-
     repair_invoiced_to = models.ForeignKey(RepairInvoicedTo, on_delete=models.CASCADE)
+    invoice_date = models.CharField(max_length=60)
+    invoice_no = models.CharField(max_length=60)
     repair_recieved_by = models.ForeignKey(RepairRecievedBy, on_delete=models.CASCADE)
     repair_invoiced_recieved = models.ForeignKey(
         RepairInvoiceRecieved, on_delete=models.CASCADE
     )
+    invoice_recieved_date = models.CharField(max_length=60)
     repair_invoiced_paid = models.ForeignKey(
         RepairInvoicePaid, on_delete=models.CASCADE
     )
+    invoice_parts = models.CharField(max_length=60)
+    invoice_labour = models.CharField(max_length=60)
+    total_invoice = models.CharField(max_length=60)
     repair_recharge = models.ForeignKey(
         RepairRecharge, on_delete=models.CASCADE
     )
+    invoice_comment = models.CharField(max_length=60)
+    total_tax = models.CharField(max_length=60)
+    location_code = models.CharField(max_length=60)
+    total_gross = models.CharField(max_length=60)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     # accidents
