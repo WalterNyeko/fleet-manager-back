@@ -43,7 +43,217 @@ from .models import (
     RepairInvoicePaid,
     RepairRecharge,
     RepairServiceHistory,
+    VehicleAccident,
+    AccidentType,
+    TypeOfLossClaim,
+    AccidentStatus,
+    LiabilityFlag,
+    BrokersName,
+    PartyToBlame,
+    AccidentDescription,
+    ClaimFormRecieved,
+    ClaimPoliceAbstract,
+    DriverLicenseRecieved,
+    ClaimRepairEstimate,
+    ClaimInspectionReport,
+    AccidentBasic,
+    Driver,
+    Relationship,
+    OtherVehicleInvolved,
+    CostCenter,
+    Weather,
+    RoadType,
+    RoadConditions,
+    DamageToVehicle,
+    VehicleBroken,
+    DoorsLocked,
+    EntryGained,
+    VehicleRecovered,
+    AccidentDetails,
+    ThirdPartiesInvolved,
+    AccidentVor,
+    WriteOff,
 )
+
+
+class WriteOffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WriteOff
+        fields = "__all__"
+
+
+class AccidentVorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentVor
+        fields = "__all__"
+
+
+class ThirdPartiesInvolvedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ThirdPartiesInvolved
+        fields = "__all__"
+
+
+class AccidentDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentDetails
+        fields = "__all__"
+
+
+class VehicleRecoveredSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleRecovered
+        fields = "__all__"
+
+
+class EntryGainedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EntryGained
+        fields = "__all__"
+
+
+class DoorsLockedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DoorsLocked
+        fields = "__all__"
+
+
+class VehicleBrokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleBroken
+        fields = "__all__"
+
+
+class DamageToVehicleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DamageToVehicle
+        fields = "__all__"
+
+
+class RoadConditionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RoadConditions
+        fields = "__all__"
+
+
+class RoadTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RoadType
+        fields = "__all__"
+
+
+class WeatherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Weather
+        fields = "__all__"
+
+
+class CostCenterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CostCenter
+        fields = "__all__"
+
+
+class OtherVehicleInvolvedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OtherVehicleInvolved
+        fields = "__all__"
+
+
+class RelationshipSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Relationship
+        fields = "__all__"
+
+
+class DriverSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Driver
+        fields = "__all__"
+
+
+class AccidentBasicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentBasic
+        fields = "__all__"
+
+
+class ClaimInspectionReportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClaimInspectionReport
+        fields = "__all__"
+
+
+class ClaimRepairEstimateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClaimRepairEstimate
+        fields = "__all__"
+
+
+class DriverLicenseRecievedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DriverLicenseRecieved
+        fields = "__all__"
+
+
+class ClaimPoliceAbstractSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClaimPoliceAbstract
+        fields = "__all__"
+
+
+class ClaimFormRecievedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClaimFormRecieved
+        fields = "__all__"
+
+
+class AccidentDescriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentDescription
+        fields = "__all__"
+
+
+class PartyToBlameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PartyToBlame
+        fields = "__all__"
+
+
+class BrokersNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BrokersName
+        fields = "__all__"
+
+
+class LiabilityFlagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LiabilityFlag
+        fields = "__all__"
+
+
+class AccidentStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentStatus
+        fields = "__all__"
+
+
+class AccidentTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentType
+        fields = "__all__"
+
+
+class TypeOfLossClaimSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TypeOfLossClaim
+        fields = "__all__"
+
+
+class VehicleAccidentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleAccident
+        fields = "__all__"
 
 
 class RepairServiceHistorySerializer(serializers.ModelSerializer):

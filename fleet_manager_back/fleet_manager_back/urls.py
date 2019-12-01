@@ -33,6 +33,7 @@ from vehicle.views import (
     VehicleAssetsView,
     VehicleNotesView,
     VehicleRepairView,
+    VehicleAccidentView,
 )
 
 # Serializers define the API representation.
@@ -84,6 +85,7 @@ router.register(r"vehicleallocation", VehicleAllocationView)
 router.register(r"vehicleassets", VehicleAssetsView)
 router.register(r"vehiclenotes", VehicleNotesView)
 router.register(r"vehiclerepair", VehicleRepairView)
+router.register(r"vehicleaccident", VehicleRepairView)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
