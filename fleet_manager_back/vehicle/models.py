@@ -1,6 +1,8 @@
 from django.db import models
 
-
+class ClaimRepairEstimate(models.Model):
+    claim_repair_estimate_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 
 class DriverLicenseRecieved(models.Model):
     driver_license_recieved_name = models.CharField(max_length=250)
@@ -519,6 +521,7 @@ class AccidentDescription(models.Model):
     claim_form_recieved = models.ForeignKey(ClaimFormRecieved, on_delete=models.CASCADE)
     claim_police_abstract = models.ForeignKey(ClaimPoliceAbstract, on_delete=models.CASCADE)
     driver_license_recieved = models.ForeignKey(DriverLicenseRecieved, on_delete=models.CASCADE)
+    claim_repair_estimate = models.ForeignKey(ClaimRepairEstimate, on_delete=models.CASCADE)
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
 
