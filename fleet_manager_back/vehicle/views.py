@@ -50,6 +50,12 @@ from .models import (
     LiabilityFlag,
     BrokersName,
     PartyToBlame,
+    AccidentDescription,
+    ClaimFormRecieved,
+    ClaimPoliceAbstract,
+    DriverLicenseRecieved,
+    ClaimRepairEstimate,
+    ClaimInspectionReport,
 )
 from .serializers import (
     VehicleInsuranceCompanySerializer,
@@ -102,8 +108,50 @@ from .serializers import (
     LiabilityFlagSerializer,
     BrokersNameSerializer,
     PartyToBlameSerializer,
+    AccidentDescriptionSerializer,
+    ClaimFormRecievedSerializer,
+    ClaimPoliceAbstractSerializer,
+    DriverLicenseRecievedSerializer,
+    ClaimRepairEstimateSerializer,
+    ClaimInspectionReportSerializer,
 )
 from rest_framework.permissions import IsAuthenticated
+
+
+class ClaimInspectionReportView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ClaimInspectionReport.objects.all()
+    serializer_class = ClaimInspectionReportSerializer
+
+
+class ClaimRepairEstimateView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ClaimRepairEstimate.objects.all()
+    serializer_class = ClaimRepairEstimateSerializer
+
+
+class DriverLicenseRecievedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = DriverLicenseRecieved.objects.all()
+    serializer_class = DriverLicenseRecievedSerializer
+
+
+class ClaimPoliceAbstractView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ClaimPoliceAbstract.objects.all()
+    serializer_class = ClaimPoliceAbstractSerializer
+
+
+class ClaimFormRecievedView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = ClaimFormRecieved.objects.all()
+    serializer_class = ClaimFormRecievedSerializer
+
+
+class AccidentDescriptionView(viewsets.ModelViewSet):
+    permission_class = [IsAuthenticated]
+    queryset = AccidentDescription.objects.all()
+    serializer_class = AccidentDescriptionSerializer
 
 
 class PartyToBlameView(viewsets.ModelViewSet):

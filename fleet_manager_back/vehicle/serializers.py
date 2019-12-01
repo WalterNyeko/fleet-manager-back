@@ -50,7 +50,49 @@ from .models import (
     LiabilityFlag,
     BrokersName,
     PartyToBlame,
+    AccidentDescription,
+    ClaimFormRecieved,
+    ClaimPoliceAbstract,
+    DriverLicenseRecieved,
+    ClaimRepairEstimate,
+    ClaimInspectionReport,
 )
+
+
+class ClaimInspectionReportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClaimInspectionReport
+        fields = "__all__"
+
+
+class ClaimRepairEstimateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClaimRepairEstimate
+        fields = "__all__"
+
+
+class DriverLicenseRecievedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DriverLicenseRecieved
+        fields = "__all__"
+
+
+class ClaimPoliceAbstractSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClaimPoliceAbstract
+        fields = "__all__"
+
+
+class ClaimFormRecievedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClaimFormRecieved
+        fields = "__all__"
+
+
+class AccidentDescriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccidentDescription
+        fields = "__all__"
 
 
 class PartyToBlameSerializer(serializers.ModelSerializer):
