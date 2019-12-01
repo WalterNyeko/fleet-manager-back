@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "vehicle",
     "customer_relations",
+    "vehicle_hire"
 ]
 
 MIDDLEWARE = [
