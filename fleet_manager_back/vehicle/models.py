@@ -1,20 +1,52 @@
 from django.db import models
 
 
+class RepairPaperworkStatus(models.Model):
+    repair_paperwork_status_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.repair_job_status_name
+
+
+class RepairJobStatus(models.Model):
+    repair_job_status_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.repair_job_status_name
+
+
+class RepairReason(models.Model):
+    repair_reason_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.repair_reason_name
+
+
+class RepairWorkshop(models.Model):
+    repair_workshop_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.repair_workshop_name
+
+
+class RepairDescription(models.Model):
+    repair_description_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.repair_description_name
+
+
 class RepairSupply(models.Model):
     repair_supply_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.repair_supply_name
-
-
-class VehicleRepair(models.Model):
-    insurance_company_name = models.CharField(max_length=250)
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.repair_name
 
 
 class VehicleInsuranceCompany(models.Model):
@@ -288,13 +320,41 @@ class VehicleDiary(models.Model):
     current_odo_date = models.CharField(max_length=60)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
-    class VehicleRepair(models.Model):
-        waranty = models.CharField(max_length=60)
 
+class VehicleRepair(models.Model):
+    job_authorization_no = models.CharField(max_length=60)
     repair_supply = models.ForeignKey(RepairSupply, on_delete=models.CASCADE)
-
-    insurance_expiry = models.CharField(max_length=60)
+    created_by = models.CharField(max_length=60)
+    registration_no = models.CharField(max_length=60)
+    sales_outlet = models.CharField(max_length=60)
+    insurance_company = models.CharField(max_length=60)
+    alias_plate_number = models.CharField(max_length=60)
+    sap_account_number = models.CharField(max_length=60)
+    cumilative_balance = models.CharField(max_length=60)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+
+class RepairDescription(models.Model):
+    repair_workshop = models.ForeignKey(RepairWorkshop, on_delete=models.CASCADE)
+    division_client = models.CharField(max_length=60)
+    repair_reason = models.ForeignKey(RepairReason, on_delete=models.CASCADE)
+    service_type = models.CharField(max_length=60)
+    job_date = models.CharField(max_length=60)
+    job_end_date = models.CharField(max_length=60)
+    odometer_in = models.CharField(max_length=60)
+    odometer_out = models.CharField(max_length=60)
+    days_off_road = models.CharField(max_length=60)
+    cost_center = models.CharField(max_length=60)
+    service_advice = models.CharField(max_length=60)
+    repair_job_status = models.ForeignKey(RepairJobStatus, on_delete=models.CASCADE)
+    repair_paperwork_status = models.ForeignKey(
+        RepairPaperworkStatus, on_delete=models.CASCADE
+    )
+    cost_parts = models.CharField(max_length=60)
+    cost_labour = models.CharField(max_length=60)
+    cost_total_net = models.CharField(max_length=60)
+    comments = models.CharField(max_length=60)
+    repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     # accidents
 

@@ -30,7 +30,42 @@ from .models import (
     VehicleNotes,
     VehicleRepair,
     RepairSupply,
+    RepairDescription,
+    RepairWorkshop,
+    RepairReason,
+    RepairJobStatus,
+    RepairPaperworkStatus,
 )
+
+
+class RepairPaperworkStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairPaperworkStatus
+        fields = "__all__"
+
+
+class RepairJobStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairJobStatus
+        fields = "__all__"
+
+
+class RepairReasonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairReason
+        fields = "__all__"
+
+
+class RepairWorkshopSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairWorkshop
+        fields = "__all__"
+
+
+class RepairDescriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairDescription
+        fields = "__all__"
 
 
 class RepairSupplySerializer(serializers.ModelSerializer):
