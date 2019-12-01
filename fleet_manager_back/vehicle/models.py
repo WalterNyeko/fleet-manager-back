@@ -1,4 +1,8 @@
 from django.db import models
+
+class LiabilityFlag(models.Model):
+    liability_flag_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 class AccidentStatus(models.Model):
     accident_status_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -473,8 +477,9 @@ class VehicleAccident(models.Model):
     job_authorization_no = models.CharField(max_length=60)
 
     accident_type = models.ForeignKey(AccidentType, on_delete=models.CASCADE)
-
     type_of_loss_claim = models.ForeignKey(TypeOfLossClaim, on_delete=models.CASCADE)
+    accident_status = models.ForeignKey(AccidentStatus, on_delete=models.CASCADE)
+    liability_flag = models.ForeignKey(LiabilityFlag, on_delete=models.CASCADE)
 
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 

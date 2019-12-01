@@ -47,7 +47,14 @@ from .models import (
     AccidentType,
     TypeOfLossClaim,
     AccidentStatus,
+    LiabilityFlag,
 )
+
+
+class LiabilityFlagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LiabilityFlag
+        fields = "__all__"
 
 
 class AccidentStatusSerializer(serializers.ModelSerializer):
