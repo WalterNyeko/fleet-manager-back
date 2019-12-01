@@ -36,7 +36,21 @@ from .models import (
     RepairJobStatus,
     RepairPaperworkStatus,
     RepairEstimationCost,
+    RepairInvoiceDetails,
+    RepairInvoicedTo
 )
+
+
+class RepairInvoicedToSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairInvoicedTo
+        fields = "__all__"
+
+
+class RepairInvoiceDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairInvoiceDetails
+        fields = "__all__"
 
 
 class RepairEstimationCostSerializer(serializers.ModelSerializer):
