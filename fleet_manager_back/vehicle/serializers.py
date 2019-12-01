@@ -28,7 +28,21 @@ from .models import (
     VehicleAllocation,
     VehicleAssets,
     VehicleNotes,
+    VehicleRepair,
+    RepairSupply,
 )
+
+
+class RepairSupplySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairSupply
+        fields = "__all__"
+
+
+class VehicleRepairSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VehicleRepair
+        fields = "__all__"
 
 
 class VehicleNotesSerializer(serializers.ModelSerializer):
