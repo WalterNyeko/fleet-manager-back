@@ -1,11 +1,44 @@
 from django.db import models
 
+class RepairRecharge(models.Model):
+    repair_recharge_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+class RepairInvoicePaid(models.Model):
+    repair_invoice_paid_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+
+class RepairInvoiceRecieved(models.Model):
+    repair_invoice_recieved_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+
+class RepairRecievedBy(models.Model):
+    repair_recieved_by_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+
+class RepairInvoicedTo(models.Model):
+    repair_invoiced_to_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+
+class RepairInvoiceDetails(models.Model):
+    repair_invoice_details_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.repair_job_status_name
+
+
 class RepairEstimationCost(models.Model):
     repair_estimation_cost_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.repair_job_status_name
+        return self.repair_estimation_cost_name
+
+
 class RepairPaperworkStatus(models.Model):
     repair_paperwork_status_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -361,6 +394,7 @@ class RepairDescription(models.Model):
     comments = models.CharField(max_length=60)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
+
 class RepairEstimationCost(models.Model):
     actual_labour_cost = models.CharField(max_length=60)
     actual_parts_cost = models.CharField(max_length=60)
@@ -368,6 +402,31 @@ class RepairEstimationCost(models.Model):
     estimated_hours = models.CharField(max_length=60)
     actual_total_gross = models.CharField(max_length=60)
     actual_total_net = models.CharField(max_length=60)
+    repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+
+
+class RepairInvoiceDetails(models.Model):
+    repair_invoiced_to = models.ForeignKey(RepairInvoicedTo, on_delete=models.CASCADE)
+    invoice_date = models.CharField(max_length=60)
+    invoice_no = models.CharField(max_length=60)
+    repair_recieved_by = models.ForeignKey(RepairRecievedBy, on_delete=models.CASCADE)
+    repair_invoiced_recieved = models.ForeignKey(
+        RepairInvoiceRecieved, on_delete=models.CASCADE
+    )
+    invoice_recieved_date = models.CharField(max_length=60)
+    repair_invoiced_paid = models.ForeignKey(
+        RepairInvoicePaid, on_delete=models.CASCADE
+    )
+    invoice_parts = models.CharField(max_length=60)
+    invoice_labour = models.CharField(max_length=60)
+    total_invoice = models.CharField(max_length=60)
+    repair_recharge = models.ForeignKey(
+        RepairRecharge, on_delete=models.CASCADE
+    )
+    invoice_comment = models.CharField(max_length=60)
+    total_tax = models.CharField(max_length=60)
+    location_code = models.CharField(max_length=60)
+    total_gross = models.CharField(max_length=60)
     repair_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     # accidents

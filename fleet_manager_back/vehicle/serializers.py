@@ -36,7 +36,49 @@ from .models import (
     RepairJobStatus,
     RepairPaperworkStatus,
     RepairEstimationCost,
+    RepairInvoiceDetails,
+    RepairInvoicedTo,
+    RepairRecievedBy,
+    RepairInvoiceRecieved,
+    RepairInvoicePaid,
+    RepairRecharge,
 )
+
+
+class RepairRechargeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairRecharge
+        fields = "__all__"
+
+
+class RepairInvoicePaidSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairInvoicePaid
+        fields = "__all__"
+
+
+class RepairInvoiceRecievedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairInvoiceRecieved
+        fields = "__all__"
+
+
+class RepairRecievedBySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairRecievedBy
+        fields = "__all__"
+
+
+class RepairInvoicedToSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairInvoicedTo
+        fields = "__all__"
+
+
+class RepairInvoiceDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RepairInvoiceDetails
+        fields = "__all__"
 
 
 class RepairEstimationCostSerializer(serializers.ModelSerializer):
