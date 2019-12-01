@@ -742,7 +742,7 @@ class AccidentCosts(models.Model):
     estimated_wild_screen_glass_costs = models.CharField(max_length=60)
     estimated_total_costs = models.CharField(max_length=60)
     actual_accident_damage = models.CharField(max_length=60)
-    actual_towing_costs = models.CharField(max_length=60)
+    actual_towing_costs = models.CharField(max_length=60) 
     actual_associated_costs = models.CharField(max_length=60)
     actual_suplimentary_costs = models.CharField(max_length=60)
     actual_wild_screen_glass_costs = models.CharField(max_length=60)
