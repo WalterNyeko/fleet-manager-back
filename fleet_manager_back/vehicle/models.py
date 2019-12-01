@@ -1,4 +1,7 @@
 from django.db import models
+class CompanyCode(models.Model):
+    company_code_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
 class PartyToBlame(models.Model):
     party_to_blame_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -487,6 +490,7 @@ class VehicleAccident(models.Model):
     liability_flag = models.ForeignKey(LiabilityFlag, on_delete=models.CASCADE)
     brokers_name = models.ForeignKey(BrokersName, on_delete=models.CASCADE)
     party_to_blame = models.ForeignKey(PartyToBlame, on_delete=models.CASCADE)
+    company_code = models.ForeignKey(CompanyCode, on_delete=models.CASCADE)
 
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
