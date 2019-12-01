@@ -1,4 +1,10 @@
 from django.db import models
+class VehicleBroken(models.Model):
+    vehicle_broken_name = models.CharField(max_length=250)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.damage_to_vehicle_name
 class DamageToVehicle(models.Model):
     damage_to_vehicle_name = models.CharField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -618,6 +624,7 @@ class AccidentBasic(models.Model):
     road_type= models.ForeignKey(RoadType, on_delete=models.CASCADE)
     road_conditions= models.ForeignKey(RoadConditions, on_delete=models.CASCADE)
     damage_to_vehicle= models.ForeignKey(DamageToVehicle, on_delete=models.CASCADE)
+    vehicle_broken= models.ForeignKey(VehicleBroken, on_delete=models.CASCADE)
 
     accident_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
