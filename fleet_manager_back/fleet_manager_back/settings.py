@@ -40,10 +40,13 @@ INSTALLED_APPS = [
     "rest_framework",
     "vehicle",
     "customer_relations",
-    "vehicle_hire"
+    "vehicle_hire",
+    "knox",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -72,15 +75,13 @@ TEMPLATES = [
 ]
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
-    ]
+    "DEFAULT_AUTHENTICATION_CLASSES": ["knox.auth.TokenAuthentication"],
 }
 
 WSGI_APPLICATION = "fleet_manager_back.wsgi.application"
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = ("http://localhost:3000",)
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

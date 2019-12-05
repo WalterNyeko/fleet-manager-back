@@ -41,16 +41,18 @@ from vehicle_hire.views import (
     VehicleHireRentalRevenueView,
     VehicleHireRentalRevenueInvoicedByView,
     VehicleHireRentalPaymentRecievedByView,
-    VehicleHireCostCenterView, 
+    VehicleHireCostCenterView,
     VehicleHireReasonView,
     VehicleHireRentalStatusView,
-    VehicleHireStatusView, 
+    VehicleHireStatusView,
     VehicleHireRentalCollectionDetailsView,
     VehicleHireRentalDetailHiringDivisionView,
-    VehicleHireRentalInvoicesToView, 
+    VehicleHireRentalInvoicesToView,
     VehicleHireRentalPaymentRecievedView,
-    VehicleHireRentalPaymentStatusView
+    VehicleHireRentalPaymentStatusView,
 )
+
+from authentication.views import RegistrationAPI, LoginAPI, UserAPI
 
 # Serializers define the API representation.
 
@@ -102,29 +104,47 @@ router.register(r"vehicleassets", VehicleAssetsView)
 router.register(r"vehiclenotes", VehicleNotesView)
 router.register(r"vehiclerepair", VehicleRepairView)
 router.register(r"vehicleaccident", VehicleRepairView)
+
 router.register(r"customerrelations", CustomerRelationsView)
 
-router.register(r'vehiclehire',VehicleHireView)
-router.register(r'vehiclehirecostcenter',VehicleHireCostCenterView)
-router.register(r'vehicle_hire_reason', VehicleHireReasonView)
-router.register(r'vehicle_hire_rental_status', VehicleHireRentalStatusView)
-router.register(r'vehicle_hire_status', VehicleHireStatusView)
-router.register(r'vehicle_hire_rental_collection_details', VehicleHireRentalCollectionDetailsView)
-router.register(r'vehicle_hire_rental_detail_hiring_division', VehicleHireRentalCollectionDetailsView)
-router.register(r'vehicle_hire_rental_invoices_to', VehicleHireRentalInvoicesToView)
-router.register(r'vehicle_hire_rental_payment_recieved', VehicleHireRentalPaymentRecievedView)
-router.register(r'vehicle_hire_rental_payment_recieved_by', VehicleHireRentalPaymentRecievedByView)
-router.register(r'vehicle_hire_rental_payment_status', VehicleHireRentalPaymentStatusView)
-router.register(r'vehicle_hire_rental_revenue_invoiced_by', VehicleHireRentalRevenueInvoicedByView)
-router.register(r'vehicle_rental_revenue',VehicleHireRentalRevenueView)
-router.register(r'vehicle_hire_rental_collection_details', VehicleHireRentalCollectionDetailsView)
-
-
+router.register(r"vehiclehire", VehicleHireView)
+router.register(r"vehiclehirecostcenter", VehicleHireCostCenterView)
+router.register(r"vehicle_hire_reason", VehicleHireReasonView)
+router.register(r"vehicle_hire_rental_status", VehicleHireRentalStatusView)
+router.register(r"vehicle_hire_status", VehicleHireStatusView)
+router.register(
+    r"vehicle_hire_rental_collection_details", VehicleHireRentalCollectionDetailsView
+)
+router.register(
+    r"vehicle_hire_rental_detail_hiring_division",
+    VehicleHireRentalCollectionDetailsView,
+)
+router.register(r"vehicle_hire_rental_invoices_to", VehicleHireRentalInvoicesToView)
+router.register(
+    r"vehicle_hire_rental_payment_recieved", VehicleHireRentalPaymentRecievedView
+)
+router.register(
+    r"vehicle_hire_rental_payment_recieved_by", VehicleHireRentalPaymentRecievedByView
+)
+router.register(
+    r"vehicle_hire_rental_payment_status", VehicleHireRentalPaymentStatusView
+)
+router.register(
+    r"vehicle_hire_rental_revenue_invoiced_by", VehicleHireRentalRevenueInvoicedByView
+)
+router.register(r"vehicle_rental_revenue", VehicleHireRentalRevenueView)
+router.register(
+    r"vehicle_hire_rental_collection_details", VehicleHireRentalCollectionDetailsView
+)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r"^admin/", admin.site.urls),
+    url(r"^api/auth/", include("knox.urls")),
     url(r"^", include(router.urls)),
     url(r"^api-auth/", include("rest_framework.urls", namespace="home")),
+    url(r"^auth/register/$", RegistrationAPI.as_view()),
+    url(r"^auth/login/$", LoginAPI.as_view()),
+    url(r"^auth/user/$", UserAPI.as_view()),
 ]
