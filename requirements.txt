@@ -1,0 +1,15 @@
+cffi==1.13.2
+cryptography==2.8
+dj-database-url==0.5.0
+Django==2.2.7
+django-cors-headers==3.2.0
+django-rest-knox==4.1.0
+djangorestframework==3.10.3
+gunicorn==20.0.4
+psycopg2-binary==2.8.4
+pycparser==2.19
+pytz==2019.3
+six==1.13.0
+sqlparse==0.3.0
+virtualenv==16.7.8
+whitenoise==4.1.4
